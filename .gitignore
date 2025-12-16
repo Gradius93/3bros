@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# ai
+.cursor
+
 # production
 /build
 
