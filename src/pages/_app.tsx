@@ -1,9 +1,9 @@
 import type { AppProps } from "next/app";
 import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
-// import "../styles/globals.css";
-// import Navbar from "@/components/layout/Navbar";
-// import Footer from "@/components/layout/Footer";
+import "../styles/globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,30 +50,27 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="googlebot" content="index,follow" />
 
         {/* Author and copyright */}
-        <meta name="author" content="LDPG - Land Development Property Group" />
-        <meta
-          name="copyright"
-          content="LDPG - Land Development Property Group"
-        />
+        <meta name="author" content="3 Bros - Fine Wagyu beef burgers" />
+        <meta name="copyright" content="3 Bros - Fine Wagyu beef burgers" />
 
         {/* Geographic targeting */}
-        <meta name="geo.region" content="GB-LND" />
+        {/* <meta name="geo.region" content="GB-LND" />
         <meta name="geo.placename" content="London" />
         <meta
           name="geo.position"
           content="51.4879718844022;0.017832782472396915"
         />
-        <meta name="ICBM" content="51.4879718844022, 0.017832782472396915" />
+        <meta name="ICBM" content="51.4879718844022, 0.017832782472396915" /> */}
       </Head>
 
       <div
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <Navbar /> */}
+        <Navbar />
         <main id="main-content" role="main">
           <Component {...pageProps} />
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );
