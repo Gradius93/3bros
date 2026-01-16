@@ -20,6 +20,7 @@ export default function Navbar() {
     { href: "/about", label: "About Us" },
     { href: "/menu", label: "Menu" },
     { href: "/locations", label: "Locations" },
+    { href: "/festivals", label: "Festivals" },
     { href: "/contact", label: "Contact Us" },
   ];
   const socialMediaItems: MenuItem[] = [
