@@ -16,4 +16,11 @@ export interface MenuItemData {
 export interface Location {
   id: number;
   name: string;
+  description: string;
+  address: string;
+  city: string;
+  phone?: string;
+  hours: string;
+  image: string;
+  mapsUrl: string;
 }
