@@ -28,8 +28,8 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#faf5dc] border-b border-black/10">
-      <div className="max-w-7xl h-24 mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-[#faf5dc] border-0 shadow-none outline-none [border-bottom:0]">
+      <div className="max-w-7xl h-24 mx-auto px-4 py-4 flex items-center justify-between border-0">
         <Link href="/">
           <Image
             src="/images/3bros_logo.png"
@@ -39,19 +39,19 @@ export default function Navbar() {
           />
         </Link>
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-12 text-sm">
+        <nav className="hidden md:flex gap-12 text-3xl font-la-petunia">
           {menuItems.map((item) => {
-            // const isActive = router.pathname === item.href;
+            const isActive = router.pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative"
+                className={isActive ? "text-[#91AF80]" : ""}
               >
                 {item.label}
-                {/* {isActive && (
+                {isActive && (
                   <span className="absolute left-0 bottom-1 w-full h-0.25 bg-black translate-y-2"></span>
-                )} */}
+                )}
               </Link>
             );
           })}
@@ -62,7 +62,7 @@ export default function Navbar() {
                 href={item.href}
                 target="_blank"
                 aria-label="Instagram"
-                className="hover:opacity-70 transition-opacity"
+                className="hover:opacity-70 transition-opacity flex items-center"
               >
                 <svg
                   width="24"
@@ -133,22 +133,25 @@ export default function Navbar() {
           className={`flex flex-col items-center space-y-8 transition-all duration-500 delay-100 ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
         >
-          {menuItems.map((item, index) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-2xl font-medium hover:underline transition-all duration-300 ${isMenuOpen
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-                }`}
-              style={{
-                transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : "0ms",
-              }}
-              onClick={closeMenu}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {menuItems.map((item, index) => {
+            const isActive = router.pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-2xl font-medium hover:underline transition-all duration-300 ${isMenuOpen
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+                  } ${isActive ? "text-[#91AF80]" : ""}`}
+                style={{
+                  transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : "0ms",
+                }}
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </header>

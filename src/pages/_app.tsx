@@ -68,7 +68,7 @@ export default function App({ Component, pageProps }: AppProps) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        <main id="main-content" role="main">
+        <main id="main-content" role="main" className="border-0">
           <Component {...pageProps} />
         </main>
         <Footer />

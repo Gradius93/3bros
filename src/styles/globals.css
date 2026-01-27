@@ -1,9 +1,10 @@
+@import "./fonts.css";
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --color-sub-green: #1C4E30;
+  --color-sub-green: #1c4e30;
 }
 
 @theme inline {
@@ -12,6 +13,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-overpass: "Overpass", sans-serif;
+  --font-la-petunia: "La Petunia", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,11 +39,15 @@ body {
 }
 
 .text-shadow-lg {
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.7),
+    0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .text-shadow-xl {
-  text-shadow: 0 6px 12px rgba(0, 0, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.6);
+  text-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.8),
+    0 3px 6px rgba(0, 0, 0, 0.6);
 }
 
 /* Fade-in animation for portfolio items */

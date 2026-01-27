@@ -41,7 +41,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* About Us Section - Image Left, Content Right */}
         <section className="mb-24">
-          <h1 className="text-4xl font-bold text-gray-900 mb-12">About Us</h1>
+          <h1 className="text-8xl font-bold text-gray-900 mb-12 font-la-petunia lg:text-right">About Us</h1>
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Image Section */}
             <div className="relative">
@@ -85,7 +85,7 @@ export default function About() {
 
         {/* Our Meat Section - Content Left, Image Right */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12">Our Meat</h2>
+          <h2 className="text-8xl font-bold text-gray-900 mb-12 font-la-petunia">Our Meat</h2>
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Text Content Section */}
             <div className="prose prose-lg max-w-none">
@@ -167,7 +167,7 @@ export default function About() {
 
         {/* The Farm Section - Image Left, Content Right */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12">The Farm</h2>
+          <h2 className="text-8xl font-bold text-gray-900 mb-12 font-la-petunia lg:text-right">The Farm</h2>
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Image Section */}
             <div className="relative">
