@@ -1,41 +1,33 @@
-// import TitleBanner from "@/components/banners/TitleBanner";
-// import GoogleMapCard from "@/components/other/map";
-// import SEOHead from "@/components/SEOHead";
+import SEOHead from "../components/SEOHead";
 
 export default function ContactPage() {
-  //   const structuredData = {
-  //     "@context": "https://schema.org",
-  //     "@type": "ContactPage",
-  //     mainEntity: {
-  //       "@type": "RealEstateAgent",
-  //       name: "LDPG - Land Development Property Group",
-  //       telephone: "020 8853 3843",
-  //       email: "info@ldpg.com",
-  //       address: {
-  //         "@type": "PostalAddress",
-  //         streetAddress: "The Studio, 6 Horn Lane",
-  //         addressLocality: "London",
-  //         postalCode: "SE10 0RT",
-  //         addressCountry: "GB",
-  //       },
-  //       geo: {
-  //         "@type": "GeoCoordinates",
-  //         latitude: 51.4879718844022,
-  //         longitude: 0.017832782472396915,
-  //       },
-  //       openingHours: "Mo-Fr 09:00-17:00",
-  //     },
-  //   };
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    mainEntity: {
+      "@type": "Restaurant",
+      name: "3Bros Burgers",
+      telephone: "020 8853 3843",
+      email: "contact@3bros.co.uk",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "The Studio, 6 Horn Lane",
+        addressLocality: "London",
+        postalCode: "SE10 0RT",
+        addressCountry: "GB",
+      },
+    },
+  };
 
   return (
     <>
-      {/* <SEOHead
-        title="Contact LDPG - Get in Touch for Property Development Services"
-        description="Contact LDPG for land development, property development, and consultation services. Located in London SE10. Call 020 8853 3843 or email info@ldpg.com"
+      <SEOHead
+        title="Contact Us - 3Bros Burgers"
+        description="Get in touch with 3Bros Burgers. Find our contact information, locations, and opening hours. Premium Sussex-Wagyu burgers across Sussex."
         canonical="/contact"
-        keywords="contact LDPG, property development consultation, land development services, London property developers, SE10"
+        keywords="contact 3Bros, burger restaurant contact, 3Bros phone number, Sussex burgers contact"
         structuredData={structuredData}
-      /> */}
+      />
       {/* <TitleBanner
         title="Contact Us"
         backgroundImage="/images/BannerImage.jpg"
@@ -50,16 +42,6 @@ export default function ContactPage() {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          {/* <div> */}
-          {/* Google Maps Embed */}
-          {/* <GoogleMapCard
-              apiKey={API_KEY}
-              location={{
-                lat: 51.4879718844022,
-                lng: 0.017832782472396915,
-              }}
-            /> */}
-          {/* </div> */}
           <div className="space-y-8 text-center">
             <h2 className="text-2xl font-semibold text-[var(--color-sub-green)]">
               Get in Touch

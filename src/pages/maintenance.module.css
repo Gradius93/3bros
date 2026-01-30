@@ -1,0 +1,40 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.mobileImage {
+  display: block;
+}
+
+.tabletImage {
+  display: none;
+}
+
+.desktopImage {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobileImage {
+    display: none;
+  }
+  
+  .tabletImage {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tabletImage {
+    display: none;
+  }
+  
+  .desktopImage {
+    display: block;
+  }
+}
