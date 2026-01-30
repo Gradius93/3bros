@@ -164,6 +164,7 @@ export default function About() {
         <div className="my-16">
           <hr className="border-gray-300" />
         </div>
+        <h1>testings</h1>
 
         {/* The Farm Section - Image Left, Content Right */}
         <section className="mb-16">
