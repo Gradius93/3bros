@@ -2,9 +2,9 @@ import type { AppProps } from "next/app";
 import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import "../styles/globals.css";
-// import Navbar from "@/components/layout/Navbar";
-// import Footer from "@/components/layout/Footer";
-import Maintenance from "./maintenance";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+// import Maintenance from "./maintenance";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,12 +67,12 @@ export default function App({ Component, pageProps }: AppProps) {
       <div
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <Navbar />
-        <main id="main-content" role="main">
+        <Navbar />
+        <main id="main-content" role="main" className="border-0">
           <Component {...pageProps} />
         </main>
-        <Footer /> */}
-        <Maintenance />
+        <Footer />
+        {/* <Maintenance /> */}
       </div>
     </>
   );
