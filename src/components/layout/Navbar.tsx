@@ -21,14 +21,14 @@ export default function Navbar() {
     { href: "/menu", label: "Menu" },
     { href: "/locations", label: "Locations" },
     { href: "/festivals", label: "Festivals" },
-    // { href: "/contact", label: "Contact Us" },
+    { href: "/contact", label: "Contact Us" },
   ];
   const socialMediaItems: MenuItem[] = [
     { href: "https://www.instagram.com/3brosmunch/", label: "instagram" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#faf5dc] border-0 shadow-none outline-none [border-bottom:0]">
+    <header className="sticky top-0 z-50 bg-[#12230D] border-0 shadow-none outline-none [border-bottom:0]">
       <div className="max-w-7xl h-24 mx-auto px-4 py-4 flex items-center justify-between border-0">
         <Link href="/">
           <Image
@@ -39,18 +39,18 @@ export default function Navbar() {
           />
         </Link>
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-12 text-3xl font-la-petunia">
+        <nav className="hidden md:flex gap-12 text-3xl font-la-petunia text-white">
           {menuItems.map((item) => {
             const isActive = router.pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={isActive ? "text-[#91AF80]" : ""}
+                className={isActive ? "text-white" : "text-white hover:text-[#d8f3dc]"}
               >
                 {item.label}
                 {isActive && (
-                  <span className="absolute left-0 bottom-1 w-full h-0.25 bg-black translate-y-2"></span>
+                  <span className="absolute left-0 bottom-1 w-full h-0.25 bg-white translate-y-2"></span>
                 )}
               </Link>
             );
