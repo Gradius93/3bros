@@ -3,9 +3,10 @@ import { useState } from "react";
 import SEOHead from "../components/SEOHead";
 import { LocationModal } from "../components/modals/LocationModal";
 import { locations } from "../data/locations";
+import type { Location as StoreLocation } from "../types";
 
 export default function Locations() {
-  const [selectedLocation, setSelectedLocation] = useState<Location | null>(
+  const [selectedLocation, setSelectedLocation] = useState<StoreLocation | null>(
     null
   );
 
@@ -50,7 +51,7 @@ export default function Locations() {
               <div key={location.id} className="w-full">
                 <button
                   className="relative aspect-square bg-white overflow-hidden cursor-pointer group w-full border-0 p-0 mb-3"
-                  onClick={() => setSelectedLocation(location as unknown as Location)}
+                  onClick={() => setSelectedLocation(location)}
                   aria-label={`View details for ${location.name}`}
                 >
                   {/* Image */}
@@ -76,7 +77,6 @@ export default function Locations() {
           </div>
         </div>
 
-        {/* Location Details Modal */}
         {selectedLocation && (
           <LocationModal
             location={selectedLocation}
