@@ -42,7 +42,7 @@ export default function Locations() {
               Find a 3Bros near you across South England
             </p>
           </div>
-        </div>
+        </div>2
 
         {/* Instagram-style Grid */}
         <div className="max-w-7xl mx-auto px-4 py-8">

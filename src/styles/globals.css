@@ -2,23 +2,30 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: var(--color-whey);
   --foreground: #171717;
   --color-sub-green: #1c4e30;
 }
 
 @theme inline {
+  --color-whey: #faf5dc;
+  --color-leaf: #18350e;
+  --color-forest: #12230d;
+  --color-akushi-gold: #be9151;
+  --color-grass: #8faf80;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-overpass: "Overpass", sans-serif;
   --font-la-petunia: "La Petunia", sans-serif;
+  --font-podium: "Podium Soft", "La Petunia", sans-serif;
+  --font-poppins: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: var(--color-whey);
     --foreground: #ededed;
   }
 }

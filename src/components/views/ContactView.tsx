@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import SEOHead from "../components/SEOHead";
+import SEOHead from "@/components/SEOHead";
 
 type SubmitStatus = "idle" | "success" | "error";
 
@@ -19,7 +19,7 @@ const initialFormData: ContactFormData = {
   website: "",
 };
 
-export default function ContactPage() {
+export default function ContactView() {
   const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<SubmitStatus>("idle");

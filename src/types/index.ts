@@ -1,8 +1,3 @@
-export interface MenuItem {
-  href: string;
-  label: string;
-}
-
 export interface MenuItemData {
   id: number;
   name: string;
