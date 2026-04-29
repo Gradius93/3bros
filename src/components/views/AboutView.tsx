@@ -52,13 +52,16 @@ export default function AboutView() {
       </section>
       <section className="mb-6">
         <div className="grid lg:grid-cols-2 gap-6 items-start lg:items-stretch">
-          <SectionImage
-            src="/images/3bros_farm-about-us.JPG"
-            alt="Trenchmore Farm"
-          />
+          <div className="flex flex-col gap-6">
+            <SectionImage src="/images/mooooooo.jpg" alt="Trenchmore Farm" />
+            <SectionImage
+              src="/images/morecows.jpg"
+              alt="Trenchmore Farm Location"
+            />
+          </div>
 
-          <div className="prose prose-lg max-w-none text-center bg-forest border border-gray-300 rounded-xl p-24 text-whey">
-            <h3 className="text-8xl mb-12 font-la-petunia text-center">
+          <div className="prose prose-lg max-w-none text-center bg-leaf border border-gray-300 rounded-xl p-20 text-whey">
+            <h3 className="text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
               The Farm
             </h3>
             <h4 className="text-3xl font-la-petunia mb-2 font-la-petunia">
@@ -88,11 +91,13 @@ export default function AboutView() {
       </section>
       <section className="mb-6">
         <div className="grid lg:grid-cols-2 gap-6 items-start lg:items-stretch">
-          <div className="prose prose-lg max-w-none bg-akushi-gold border border-gray-300 rounded-xl p-24 text-whey">
-            <h3 className="text-8xl font-bold mb-12 font-la-petunia text-center">
+          <div className="prose prose-lg max-w-none text-center bg-leaf border border-gray-300 rounded-xl p-20 text-whey">
+            <h3 className="text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
               Our Meat
             </h3>
-            <h4 className="text-2xl font-bold mb-6">Sussex Wagyu Beef</h4>
+            <h4 className="text-4xl font-bold mb-6 font-la-petunia">
+              Sussex Wagyu Beef
+            </h4>
             <p className="text-md mb-8">
               British Wagyu is Wagyu beef raised in the UK using Wagyu genetics,
               but farmed to British standards and landscapes. It delivers the
@@ -103,7 +108,9 @@ export default function AboutView() {
 
             <ul className="space-y-4">
               <li>
-                <strong className="block font-semibold">Wagyu genetics</strong>
+                <strong className="block font-semibold font-poppins">
+                  Wagyu genetics
+                </strong>
                 <p className="text-md mt-1">
                   British Wagyu cattle are bred from full-blood or crossbred
                   Wagyu lines, crossed with traditional British breeds like
@@ -113,7 +120,7 @@ export default function AboutView() {
               </li>
 
               <li>
-                <strong className="block font-semibold">
+                <strong className="block font-semibold font-poppins">
                   British farming standards
                 </strong>
                 <p className="text-md mt-1">
@@ -124,7 +131,9 @@ export default function AboutView() {
               </li>
 
               <li>
-                <strong className="block font-semibold">Grass-led diets</strong>
+                <strong className="block font-semibold font-poppins">
+                  Grass-led diets
+                </strong>
                 <p className="text-md  mt-1">
                   Unlike Japanese Wagyu, which is usually grain-fed, British
                   Wagyu is commonly grass-fed or grass-led, resulting in rich
@@ -144,10 +153,16 @@ export default function AboutView() {
             </ul>
           </div>
 
-          <SectionImage
-            src="/images/3bros_trenchmore-beef-about-us.jpg"
-            alt="Sussex Wagyu beef section image"
-          />
+          <div className="flex flex-col gap-6">
+            <SectionImage
+              src="/images/pepperpatties.JPG"
+              alt="Trenchmore Farm"
+            />
+            <SectionImage
+              src="/images/pattys.jpg"
+              alt="Trenchmore Farm Location"
+            />
+          </div>
         </div>
       </section>
     </div>

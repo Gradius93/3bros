@@ -1,142 +1,155 @@
 import type { MenuItemData } from "../types";
 
 export const menuItems: MenuItemData[] = [
-    // Burgers
-    {
-        id: 1,
-        name: "Classic 3Bros Burger",
-        description: "Sussex-Wagyu beef, lettuce, tomato, pickles, special sauce",
-        price: 12.5,
-        category: "burger",
-        availableAt: [1, 2, 3, 4, 5, 6], // Available at all locations
-    },
-    {
-        id: 2,
-        name: "The Ghost Special",
-        description:
-            "Double Sussex-Wagyu patty, aged cheddar, caramelized onions, bacon",
-        price: 15,
-        category: "burger",
-        availableAt: [1], // Only at Chichester
-    },
-    {
-        id: 3,
-        name: "Brighton Blue",
-        description: "Single patty, blue cheese, arugula, fig jam, crispy shallots",
-        price: 14,
-        category: "burger",
-        availableAt: [2, 4], // Only at Brighton and Hove
-    },
-    {
-        id: 4,
-        name: "Spicy Sriracha Burger",
-        description:
-            "Sussex-Wagyu beef, pepper jack cheese, jalapeños, sriracha mayo",
-        price: 13.5,
-        category: "burger",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
-    {
-        id: 5,
-        name: "Mushroom Swiss Delight",
-        description:
-            "Sautéed mushrooms, Swiss cheese, truffle aioli, crispy onions",
-        price: 14.5,
-        category: "burger",
-        availableAt: [3, 6], // Only at Lewes and Arundel
-    },
+  // Burgers
+  {
+    id: 1,
+    name: "The Classic",
+    description:
+      "Sussex-Wagyu beef, smoked cheddar, lettuce, bros burger sauce",
+    price: 12.0,
+    category: "burger",
+    availableAt: [1, 2, 3, 4, 5, 6], // Available at all locations
+  },
+  {
+    id: 2,
+    name: "Bacon Cheese",
+    description:
+      "Sussex-Wagyu patty, crispy smoked bacon, smoked cheddar, bros burger sauce",
+    price: 14,
+    category: "burger",
+    availableAt: [1, 2, 3, 4, 5, 6], // Available at all locations
+  },
+  {
+    id: 3,
+    name: "Chilli Blue",
+    description: "Sussex-Wagyu beef, blue cheese, chilli sauce",
+    price: 12.5,
+    category: "burger",
+    availableAt: [1, 2, 3, 4, 5, 6], // Available at all locations
+  },
+  {
+    id: 4,
+    name: "Mushroom & Halloumi",
+    description:
+      "Portobello mushroom, grilled halloumi, lettuce, bros burger sauce",
+    price: 12,
+    category: "burger",
+    availableAt: [1, 3], // Only at Trenchmore Farm and Chichester
+  },
+  {
+    id: 5,
+    name: "Bone marrow & truffle",
+    description:
+      "Sussex Wagyu beef, smoked cheddar, confit onion, pickled gherkin, bone marrow truffle mayo",
+    price: 13,
+    category: "burger",
+    availableAt: [2, 3, 4], // Only at Brighton, Chichester and Winchester
+  },
+  {
+    id: 6,
+    name: "Chickpea & Veg",
+    description:
+      "Aromatic chickpea & veg patty, lettuce, vegan bros burger sauce",
+    price: 12,
+    category: "burger",
+    availableAt: [2], // Only at Brighton
+  },
+  {
+    id: 7,
+    name: "Mushroom garlictruffle",
+    description:
+      "Crispy mushroom & truffle patty, pickled gherkin, vegan confit garlic mayo",
+    price: 12,
+    category: "burger",
+    availableAt: [2, 4], // Only at Brighton and Winchester
+  },
 
-    // Fries
-    {
-        id: 6,
-        name: "Classic Fries",
-        description: "Crispy golden fries seasoned with sea salt",
-        price: 4,
-        category: "fries",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
-    {
-        id: 7,
-        name: "Truffle Parmesan Fries",
-        description: "Hand-cut fries tossed in truffle oil and parmesan",
-        price: 6.5,
-        category: "fries",
-        availableAt: [1, 2, 4, 5],
-    },
-    {
-        id: 8,
-        name: "Loaded Cheese Fries",
-        description: "Fries topped with melted cheese, bacon bits, and chives",
-        price: 7,
-        category: "fries",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
+  // Fries & sides
+  {
+    id: 8,
+    name: "Truffle Parmesan & Fries",
+    description: "Grated parmesan & black truffle EV olive oil",
+    price: 6.5,
+    category: "fries/sides",
+    availableAt: [2], // Only at Brighton
+  },
+  {
+    id: 9,
+    name: "Fries",
+    description: "Rosemary & oregano salt dusting",
+    price: 4,
+    category: "fries/sides",
+    availableAt: [1, 2, 3, 4, 5, 6], // Available at all locations
+  },
 
-    // Sides
-    {
-        id: 9,
-        name: "Onion Rings",
-        description: "Beer-battered crispy onion rings with ranch dip",
-        price: 5.5,
-        category: "sides",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
-    {
-        id: 10,
-        name: "Coleslaw",
-        description: "Creamy homemade coleslaw with a tangy twist",
-        price: 3.5,
-        category: "sides",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
-    {
-        id: 11,
-        name: "Mac & Cheese Bites",
-        description: "Crispy fried mac and cheese balls",
-        price: 6,
-        category: "sides",
-        availableAt: [1, 2, 4],
-    },
-    {
-        id: 12,
-        name: "Sweet Potato Fries",
-        description: "Crispy sweet potato fries with honey mayo",
-        price: 5,
-        category: "sides",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
+  {
+    id: 10,
+    name: "Halloumi Fries",
+    description: "Fried halloumi & hot honey",
+    price: 7.5,
+    category: "fries/sides",
+    availableAt: [2, 3, 4], // Only at Brighton, Chichester and Winchester
+  },
+  {
+    id: 11,
+    name: "Mac & Cheese Bites",
+    description: "Mac & cheese bites & chilli sauce",
+    price: 7.5,
+    category: "fries/sides",
+    availableAt: [2, 3, 4], // Only at Brighton, Chichester and Winchester
+  },
+  {
+    id: 12,
+    name: "Wragù Fries",
+    description:
+      "Rich spiced Sussex Wagyu ragù, smoked cheddar, pickled jalapeño loaded fries",
+    price: 9.5,
+    category: "fries/sides",
+    availableAt: [2], // Only at Brighton
+  },
 
-    // Drinks
-    {
-        id: 13,
-        name: "Coca-Cola",
-        description: "Classic Coke (330ml)",
-        price: 2.5,
-        category: "drinks",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
-    {
-        id: 14,
-        name: "Local Craft Beer",
-        description: "Selection of Sussex craft beers",
-        price: 5.5,
-        category: "drinks",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
-    {
-        id: 15,
-        name: "Homemade Lemonade",
-        description: "Fresh squeezed lemonade",
-        price: 3.5,
-        category: "drinks",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
-    {
-        id: 16,
-        name: "Milkshakes",
-        description: "Vanilla, chocolate, or strawberry",
-        price: 4.5,
-        category: "drinks",
-        availableAt: [1, 2, 3, 4, 5, 6],
-    },
+  // Sauces
+  {
+    id: 13,
+    name: "Bros burger sauce",
+    price: 2,
+    category: "sauces",
+    availableAt: [1, 2, 3, 4, 5, 6], // Available at all locations
+  },
+  {
+    id: 14,
+    name: "chilli sauce",
+    price: 2,
+    category: "sauces",
+    availableAt: [1, 2, 3, 4, 5, 6], // Available at all locations
+  },
+  {
+    id: 15,
+    name: "hot honey",
+    price: 2,
+    category: "sauces",
+    availableAt: [2, 3, 4], // Only at Brighton, Chichester and Winchester
+  },
+  {
+    id: 16,
+    name: "Bone marrow truffle mayo",
+    price: 2,
+    category: "sauces",
+    availableAt: [2, 3, 4], // Only at Brighton, Chichester and Winchester
+  },
+  {
+    id: 17,
+    name: "Vegan bros burger sauce",
+    price: 2,
+    category: "sauces",
+    availableAt: [2], // Only at Brighton
+  },
+  {
+    id: 18,
+    name: "Vegan confit garlic mayo",
+    price: 2,
+    category: "sauces",
+    availableAt: [2, 4], // Only at Brighton and Winchester
+  },
 ];

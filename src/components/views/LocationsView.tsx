@@ -21,7 +21,7 @@ export default function LocationsView() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,320px))] justify-center gap-8">
           {locations.map((location) => (
             <div key={location.id} className="w-full">
               <button
@@ -40,7 +40,7 @@ export default function LocationsView() {
                 </div>
               </button>
 
-              <div className="px-2">
+              <div className="px-2 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   {location.name}
                 </h3>

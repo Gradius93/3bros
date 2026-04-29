@@ -1,4 +1,5 @@
 import InfiniteCarousel from "@/components/InfintieCarousel";
+import MarqueeBanner from "@/components/MarqueeBanner";
 import SEOHead from "@/components/SEOHead";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
@@ -49,7 +50,7 @@ export default function Page() {
         <section id="about-us" className="scroll-mt-32">
           <AboutView />
         </section>
-
+        <MarqueeBanner text="Farmed For Flavour" />
         <section id="our-menu" className="scroll-mt-32">
           <MenuView />
         </section>
