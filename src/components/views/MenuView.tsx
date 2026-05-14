@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { MenuItemData } from "@/types";
 import { locations } from "@/data/locations";
 import { menuItems } from "@/data/menu";
@@ -18,10 +18,10 @@ export default function MenuView() {
   const sauces = filteredItems.filter((item) => item.category === "sauces");
 
   return (
-    <div className="min-h-screen bg-whey mt-24">
+    <div className="min-h-screen bg-whey">
       <div>
         <div className="max-w-7xl mx-auto px-4 pt-12 pb-2">
-          <h2 className="text-8xl text-center text-leaf font-podium uppercase font-bold text-gray-900 mb-2">
+          <h2 className="text-4xl sm:text-6xl lg:text-8xl text-center text-leaf font-podium uppercase font-bold text-gray-900 mb-2">
             Our Menu
           </h2>
           <p className="text-3xl text-leaf text-center text-gray-600">
@@ -30,7 +30,7 @@ export default function MenuView() {
         </div>
       </div>
 
-      <div className="sticky top-24 z-10">
+      <div>
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex justify-center">
             <div className="flex items-center justify-center gap-2 flex-wrap">
@@ -67,13 +67,13 @@ export default function MenuView() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="space-y-16">
           {burgers.length > 0 && (
-            <CarouselSection title="Burgers" items={burgers} />
+            <CarouselSection key={`burgers-${selectedLocation}`} title="Burgers" items={burgers} />
           )}
           {friesSides.length > 0 && (
-            <CarouselSection title="Fries" items={friesSides} />
+            <CarouselSection key={`fries-${selectedLocation}`} title="Fries" items={friesSides} />
           )}
           {sauces.length > 0 && (
-            <CarouselSection title="Sauces" items={sauces} />
+            <CarouselSection key={`sauces-${selectedLocation}`} title="Sauces" items={sauces} />
           )}
           {filteredItems.length === 0 && (
             <div className="text-center py-12">
@@ -96,15 +96,35 @@ function CarouselSection({
   readonly items: MenuItemData[];
 }) {
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(items.length > 1);
 
-  const scrollByWidth = (direction: "left" | "right") => {
-    if (!trackRef.current) return;
-    const offset = trackRef.current.clientWidth - 48;
-    trackRef.current.scrollBy({
-      left: direction === "right" ? offset : -offset,
-      behavior: "smooth",
-    });
+  const updateScrollState = () => {
+    const el = trackRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 1);
   };
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    updateScrollState();
+    el.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => el.removeEventListener("scroll", updateScrollState);
+  }, []);
+
+  const scroll = (direction: "left" | "right") => {
+    const el = trackRef.current;
+    if (!el) return;
+    const isMobile = window.innerWidth < 768;
+    const offset = isMobile ? window.innerWidth : el.clientWidth - 48;
+    el.scrollBy({ left: direction === "right" ? offset : -offset, behavior: "smooth" });
+  };
+
+  const btnBase = "inline-flex items-center justify-center h-8 w-8 rounded-lg border-2 transition-colors focus:outline-none";
+  const btnEnabled = "bg-whey border-leaf text-leaf hover:bg-leaf hover:text-whey";
+  const btnDisabled = "bg-whey/40 border-leaf/30 text-leaf/30 cursor-not-allowed";
 
   return (
     <section>
@@ -113,28 +133,30 @@ function CarouselSection({
         <div className="flex gap-2">
           <button
             type="button"
-            onClick={() => scrollByWidth("left")}
-            className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white border border-gray-300 text-gray-700 shadow-sm hover:bg-gray-100 focus:outline-none"
+            onClick={() => scroll("left")}
+            disabled={!canScrollLeft}
+            className={`${btnBase} ${canScrollLeft ? btnEnabled : btnDisabled}`}
             aria-label={`Scroll ${title} left`}
           >
-            ←
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="11 6 5 12 11 18"/></svg>
           </button>
           <button
             type="button"
-            onClick={() => scrollByWidth("right")}
-            className="inline-flex items-center justify-center h-11 w-11 rounded-full bg-white border border-gray-300 text-gray-700 shadow-sm hover:bg-gray-100 focus:outline-none"
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            className={`${btnBase} ${canScrollRight ? btnEnabled : btnDisabled}`}
             aria-label={`Scroll ${title} right`}
           >
-            →
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
           </button>
         </div>
       </div>
-      <div className="overflow-x-auto scroll-smooth py-4" ref={trackRef}>
-        <div className="flex gap-6 snap-x snap-mandatory px-3">
+      <div className="overflow-x-auto scroll-smooth py-4 -mx-4 md:mx-0" ref={trackRef}>
+        <div className="flex gap-6 snap-x snap-mandatory md:px-3">
           {items.map((item) => (
             <div
               key={item.id}
-              className="flex-shrink-0 w-[90vw] md:w-[45vw] lg:w-[24vw] snap-start"
+              className="flex-shrink-0 w-screen md:w-[45vw] lg:w-[24vw] snap-start"
             >
               <MenuItemCard item={item} />
             </div>
@@ -146,37 +168,35 @@ function CarouselSection({
 }
 
 function MenuItemCard({ item }: { readonly item: MenuItemData }) {
+  const availableAt =
+    item.availableAt.length >= locations.length
+      ? "All locations"
+      : item.availableAt
+          .map((locId) => locations.find((loc) => loc.id === locId)?.name ?? "")
+          .join(", ");
+
   return (
-    <div className="bg-forest rounded-b-lg shadow-md hover:shadow-lg transition-shadow h-[500px] flex flex-col overflow-hidden">
-      <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
+    <div className="flex flex-col h-[600px] bg-whey border-2 border-leaf rounded-2xl overflow-hidden">
+      {/* Image flush to edges */}
+      <div className="relative w-full h-80 flex-shrink-0 overflow-hidden">
         <Image
-          src="/images/pattys.jpg"
+          src={item.image ?? "/images/pattys.jpg"}
           alt={item.name}
           fill
           className="object-cover"
         />
       </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <div className="text-xs text-grass mb-2 flex-shrink-0">
-          Available at:{" "}
-          {item.availableAt.length === 6
-            ? "All locations"
-            : item.availableAt
-                .map(
-                  (locId) =>
-                    locations.find((loc) => loc.id === locId)?.name || ""
-                )
-                .join(", ")}
-        </div>
-        <div className="flex mb-3 justify-center flex-shrink-0">
-          <h4 className="text-4xl uppercase font-podium text-whey">
-            {item.name}
-          </h4>
-        </div>
-        <p className="text-whey mb-4 flex-grow">{item.description}</p>
-        <span className="text-lg text-grass flex-shrink-0">
-          £{item.price.toFixed(2)}
-        </span>
+
+      {/* Dark info section */}
+      <div className="bg-forest flex-grow flex flex-col items-center justify-center px-6 py-5 text-center">
+        <p className="text-grass text-xs uppercase tracking-widest mb-3">
+          Available at: {availableAt}
+        </p>
+        <h4 className="text-3xl uppercase font-podium font-bold text-whey leading-tight mb-3">
+          {item.name}
+        </h4>
+        <p className="text-whey/80 text-sm mb-4">{item.description}</p>
+        <span className="text-grass text-base">£{item.price.toFixed(2)}</span>
       </div>
     </div>
   );

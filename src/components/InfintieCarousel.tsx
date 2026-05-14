@@ -5,7 +5,8 @@ interface InfiniteCarouselProps {
 }
 
 const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ images }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef(0);
 
   useEffect(() => {
     let animationFrame = 0;
@@ -13,22 +14,21 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ images }) => {
     const speed = 36;
 
     const step = (timestamp: number) => {
-      const container = containerRef.current;
-      if (!container) return;
-
-      if (!lastTimestamp) {
-        lastTimestamp = timestamp;
-      }
-
-      const elapsed = timestamp - lastTimestamp;
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const elapsed = Math.min(timestamp - lastTimestamp, 100);
       lastTimestamp = timestamp;
-      container.scrollLeft += (speed * elapsed) / 1000;
 
-      const halfWidth = container.scrollWidth / 2;
-      if (container.scrollLeft >= halfWidth) {
-        container.scrollLeft -= halfWidth;
+      const track = trackRef.current;
+      if (!track) return;
+
+      posRef.current += (speed * elapsed) / 1000;
+
+      const halfWidth = track.scrollWidth / 2;
+      if (posRef.current >= halfWidth) {
+        posRef.current -= halfWidth;
       }
 
+      track.style.transform = `translateX(-${posRef.current}px)`;
       animationFrame = requestAnimationFrame(step);
     };
 
@@ -39,30 +39,27 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ images }) => {
   const duplicatedImages = [...images, ...images];
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        display: "flex",
-        overflowX: "hidden",
-        width: "100%",
-        scrollBehavior: "auto",
-        gap: "20px",
-      }}
-    >
-      {duplicatedImages.map((src, index) => (
-        <img
-          key={index}
-          src={src}
-          alt={`image-${index}`}
-          style={{
-            width: "300px",
-            height: "300px",
-            flexShrink: 0,
-            objectFit: "cover",
-            borderRadius: "3px",
-          }}
-        />
-      ))}
+    <div style={{ overflow: "hidden", width: "100%" }}>
+      <div
+        ref={trackRef}
+        style={{ display: "flex", gap: "20px", willChange: "transform" }}
+      >
+        {duplicatedImages.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`image-${index}`}
+            style={{
+              width: "300px",
+              height: "300px",
+              flexShrink: 0,
+              objectFit: "cover",
+              border: "3px solid #18350E",
+              borderRadius: "6px",
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function AboutView() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="max-w-7xl mx-auto px-4 py-8">
       <section className="mb-6">
         <div className="grid lg:grid-cols-2 gap-6 items-start lg:items-stretch">
-          <div className="prose prose-lg max-w-none bg-leaf border border-gray-300 rounded-xl p-20 text-whey">
+          <div className="prose prose-lg max-w-none bg-leaf border border-gray-300 rounded-xl p-6 sm:p-12 lg:p-20 text-whey">
             <div className="text-center">
-              <h2 className="text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
+              <h2 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
                 About Us
               </h2>
               <h3 className="text-3xl font-la-petunia mb-2">The Beginning</h3>
@@ -60,8 +60,8 @@ export default function AboutView() {
             />
           </div>
 
-          <div className="prose prose-lg max-w-none text-center bg-leaf border border-gray-300 rounded-xl p-20 text-whey">
-            <h3 className="text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
+          <div className="prose prose-lg max-w-none text-center bg-forest border border-gray-300 rounded-xl p-20 text-whey">
+            <h3 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
               The Farm
             </h3>
             <h4 className="text-3xl font-la-petunia mb-2 font-la-petunia">
@@ -91,8 +91,8 @@ export default function AboutView() {
       </section>
       <section className="mb-6">
         <div className="grid lg:grid-cols-2 gap-6 items-start lg:items-stretch">
-          <div className="prose prose-lg max-w-none text-center bg-leaf border border-gray-300 rounded-xl p-20 text-whey">
-            <h3 className="text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
+          <div className="prose prose-lg max-w-none text-center bg-akushi-gold border border-gray-300 rounded-xl p-20 text-whey">
+            <h3 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
               Our Meat
             </h3>
             <h4 className="text-4xl font-bold mb-6 font-la-petunia">
@@ -172,19 +172,17 @@ export default function AboutView() {
 function SectionImage({
   src,
   alt,
-  className = "",
 }: {
   readonly src: string;
   readonly alt: string;
-  readonly className?: string;
 }) {
   return (
-    <div className="relative w-full min-h-[420px] aspect-[4/5] overflow-hidden rounded-xl lg:min-h-0 lg:h-full lg:aspect-auto">
+    <div className="relative w-full min-h-[420px] aspect-[4/5] overflow-hidden rounded-xl border-3 border-leaf lg:min-h-0 lg:h-full lg:aspect-auto">
       <Image
         src={src}
         alt={alt}
         fill
-        className={`${className ? className : "object-cover"}`}
+        className="object-cover"
       />
     </div>
   );

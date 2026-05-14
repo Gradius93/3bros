@@ -23,7 +23,11 @@ export default function Navbar() {
     { href: "#festivals", label: "Festivals" },
   ];
 
-  const menuItems = [...leftItems, ...rightItems];
+  const allItems: NavItem[] = [
+    ...leftItems,
+    ...rightItems,
+    { href: "#contact", label: "Contact" },
+  ];
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -107,32 +111,55 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`lg:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center transition-all duration-300 ${
+        className={`lg:hidden fixed inset-0 z-50 flex flex-col transition-all duration-300 ${
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
-        <button
-          type="button"
-          className="absolute top-6 right-6 w-8 h-8 flex flex-col justify-center items-center"
-          onClick={closeMenu}
-          aria-label="Close menu"
-        >
-          <span className="block w-6 h-0.5 bg-black rotate-45 translate-y-0.5" />
-          <span className="block w-6 h-0.5 bg-black -rotate-45 -translate-y-0.5" />
-        </button>
+        {/* Top bar matching navbar */}
+        <div className="bg-forest h-24 px-4 flex items-center justify-between flex-shrink-0">
+          <a href="#top" onClick={closeMenu} aria-label="Go to top">
+            <Image
+              src="/images/logo1.png"
+              alt="3 Bros"
+              width={100}
+              height={100}
+              className="w-[50px] h-auto"
+            />
+          </a>
+          <button
+            type="button"
+            onClick={closeMenu}
+            aria-label="Close menu"
+            className="text-whey text-4xl font-podium leading-none"
+          >
+            ✕
+          </button>
+        </div>
 
-        <nav className="flex flex-col items-center space-y-8">
-          {menuItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={closeMenu}
-              className={`${mobileNavLinkClasses} hover:underline`}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div className="bg-grass flex-1 flex flex-col justify-between overflow-y-auto">
+          <nav className="flex flex-col items-center gap-4 pt-12 px-4">
+            {allItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className={`${mobileNavLinkClasses} text-whey`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex justify-center pb-4 pt-8">
+            <Image
+              src="/images/bull.png"
+              alt="3Bros bull"
+              width={288}
+              height={288}
+              className="w-72 h-auto"
+            />
+          </div>
+        </div>
       </div>
     </header>
   );

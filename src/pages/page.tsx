@@ -36,7 +36,7 @@ export default function Page() {
         <section id="home" className="scroll-mt-28">
           <HomeView />
         </section>
-        <div className="my-12">
+        <div className="my-4">
           <InfiniteCarousel
             images={[
               "/images/carousel1.jpg",
@@ -50,12 +50,13 @@ export default function Page() {
         <section id="about-us" className="scroll-mt-32">
           <AboutView />
         </section>
-        <MarqueeBanner text="Farmed For Flavour" />
-        <section id="our-menu" className="scroll-mt-32">
+        <section id="our-menu" className="scroll-mt-24">
+          <MarqueeBanner text="Farmed For Flavour" />
           <MenuView />
         </section>
 
-        <section id="locations" className="scroll-mt-32">
+        <section id="locations" className="scroll-mt-24">
+          <MarqueeBanner text="A Bite of Sussex" />
           <LocationsView />
         </section>
 

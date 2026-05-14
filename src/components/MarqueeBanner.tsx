@@ -12,14 +12,14 @@ export default function MarqueeBanner({
       aria-label="Scrolling text banner"
       className="bg-grass text-whey border-y border-whey/20"
     >
-      <div className="overflow-hidden py-2">
+      <div className="overflow-hidden py-5">
         <div className="banner-track">
           {Array.from({ length: BANNER_ITEMS * 2 }).map((_, index) => (
             <div key={index} className="flex items-center">
-              <span className="inline-block px-4 text-sm sm:text-base font-poppins whitespace-nowrap">
+              <span className="inline-block px-6 text-2xl sm:text-3xl font-poppins whitespace-nowrap">
                 {text}
               </span>
-              <span aria-hidden="true" className="text-sm sm:text-base font-poppins">
+              <span aria-hidden="true" className="text-2xl sm:text-3xl font-poppins">
                 •
               </span>
             </div>
