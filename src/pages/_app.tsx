@@ -1,20 +1,7 @@
 import type { AppProps } from "next/app";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Head from "next/head";
 import "../styles/globals.css";
-// import Maintenance from "./maintenance";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -27,55 +14,16 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        {/* Global meta tags */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
-        {/* DNS prefetch for better performance */}
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-
-        {/* Security headers */}
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
-        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-
-        {/* Language and locale */}
         <meta httpEquiv="content-language" content="en-GB" />
-
-        {/* Robots meta (can be overridden by individual pages) */}
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />
-
-        {/* Author and copyright */}
-        <meta name="author" content="3 Bros - Fine Wagyu beef burgers" />
-        <meta name="copyright" content="3 Bros - Fine Wagyu beef burgers" />
-
-        {/* Geographic targeting */}
-        {/* <meta name="geo.region" content="GB-LND" />
-        <meta name="geo.placename" content="London" />
-        <meta
-          name="geo.position"
-          content="51.4879718844022;0.017832782472396915"
-        />
-        <meta name="ICBM" content="51.4879718844022, 0.017832782472396915" /> */}
+        <meta name="author" content="3Bros Burgers" />
       </Head>
 
-      <div
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
-      >
-        <main id="main-content" role="main" className="border-0">
-          <Component {...pageProps} />
-        </main>
-        {/* <Maintenance /> */}
+      <div className={`${poppins.variable} antialiased`}>
+        <Component {...pageProps} />
       </div>
     </>
   );

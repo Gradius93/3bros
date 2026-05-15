@@ -1,7 +1,9 @@
+import Image from "next/image";
 import React, { useRef, useEffect } from "react";
 
 interface InfiniteCarouselProps {
   images: string[];
+  alts?: string[];
 }
 
 const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ images }) => {
@@ -9,6 +11,9 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ images }) => {
   const posRef = useRef(0);
 
   useEffect(() => {
+    // Respect the user's reduced-motion preference — skip animation entirely
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     let animationFrame = 0;
     let lastTimestamp = 0;
     const speed = 36;
@@ -39,25 +44,34 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ images }) => {
   const duplicatedImages = [...images, ...images];
 
   return (
-    <div style={{ overflow: "hidden", width: "100%" }}>
+    // aria-hidden: the carousel is purely decorative — the same images appear
+    // individually with proper alt text elsewhere, so screen readers skip this.
+    <div style={{ overflow: "hidden", width: "100%" }} aria-hidden="true">
       <div
         ref={trackRef}
         style={{ display: "flex", gap: "20px", willChange: "transform" }}
       >
         {duplicatedImages.map((src, index) => (
-          <img
+          <div
             key={index}
-            src={src}
-            alt={`image-${index}`}
             style={{
               width: "300px",
               height: "300px",
               flexShrink: 0,
-              objectFit: "cover",
+              position: "relative",
               border: "3px solid #18350E",
               borderRadius: "6px",
+              overflow: "hidden",
             }}
-          />
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              style={{ objectFit: "cover" }}
+              loading="lazy"
+            />
+          </div>
         ))}
       </div>
     </div>

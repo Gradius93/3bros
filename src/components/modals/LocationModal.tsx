@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Location } from "../../types";
 
 interface LocationModalProps {
@@ -9,12 +9,71 @@ interface LocationModalProps {
 
 export function LocationModal({ location, onClose }: LocationModalProps) {
   const [isClosing, setIsClosing] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  // Remember which element had focus before the modal opened so we can restore it
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    previousFocusRef.current = document.activeElement as HTMLElement;
+
+    // Move focus into the dialog on mount
+    const dialog = dialogRef.current;
+    if (dialog) {
+      const firstFocusable = dialog.querySelector<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      firstFocusable?.focus();
+    }
+
+    return () => {
+      // Restore focus to the trigger element when the modal unmounts
+      previousFocusRef.current?.focus();
+    };
+  }, []);
+
+  // Focus trap + Escape key
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        handleClose();
+        return;
+      }
+      if (e.key !== "Tab") return;
+
+      const focusableEls = Array.from(
+        dialog.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      );
+      const first = focusableEls[0];
+      const last = focusableEls[focusableEls.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleClose = () => {
     setIsClosing(true);
     setTimeout(() => {
       onClose();
-    }, 300); // Match fadeOut duration (0.3s)
+    }, 300);
   };
 
   return (
@@ -22,13 +81,16 @@ export function LocationModal({ location, onClose }: LocationModalProps) {
       className={`fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 ${
         isClosing ? "animate-fadeOut" : "animate-fadeIn"
       }`}
+      // Dismiss on backdrop click
+      onClick={(e) => {
+        if (e.target === e.currentTarget) handleClose();
+      }}
     >
-      <button
-        className="absolute inset-0 border-0 bg-transparent cursor-default"
-        onClick={handleClose}
-        aria-label="Close location details"
-      />
       <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="location-modal-title"
         className={`bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto relative z-10 ${
           isClosing ? "animate-fadeOut" : "animate-flipIn"
         }`}
@@ -37,7 +99,7 @@ export function LocationModal({ location, onClose }: LocationModalProps) {
         <div className="relative w-full aspect-video">
           <Image
             src={location.image}
-            alt={location.name}
+            alt={`3Bros at ${location.name}`}
             fill
             className="object-cover"
           />
@@ -68,7 +130,7 @@ export function LocationModal({ location, onClose }: LocationModalProps) {
                 </h3>
                 <a
                   href={`tel:${location.phone}`}
-                  className="text-lg text-blue-600 hover:underline"
+                  className="text-lg text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-600 focus:rounded"
                 >
                   {location.phone}
                 </a>
@@ -89,13 +151,14 @@ export function LocationModal({ location, onClose }: LocationModalProps) {
               href={location.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
             >
               <svg
                 className="w-5 h-5 mr-2"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -111,10 +174,12 @@ export function LocationModal({ location, onClose }: LocationModalProps) {
                 />
               </svg>
               View on Google Maps
+              <span className="sr-only">(opens in new tab)</span>
             </a>
             <button
+              type="button"
               onClick={handleClose}
-              className="w-full px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+              className="w-full px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
             >
               Close
             </button>
