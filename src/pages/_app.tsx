@@ -1,9 +1,7 @@
 import type { AppProps } from "next/app";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import Head from "next/head";
 import "../styles/globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 // import Maintenance from "./maintenance";
 
 const geistSans = Geist({
@@ -15,6 +13,13 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -65,13 +70,11 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <div
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
-        <Navbar />
         <main id="main-content" role="main" className="border-0">
           <Component {...pageProps} />
         </main>
-        <Footer />
         {/* <Maintenance /> */}
       </div>
     </>

@@ -1,158 +1,165 @@
-import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from "next/router";
-import { MenuItem } from "@/types";
+
+interface NavItem {
+  readonly href: string;
+  readonly label: string;
+}
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router = useRouter();
+  const navLinkBaseClasses =
+    "font-podium font-normal tracking-[0.035em] uppercase whitespace-nowrap [leading-trim:both] [text-edge:cap_alphabetic]";
+  const desktopNavLinkClasses = `${navLinkBaseClasses} text-right text-[40px] leading-[1]`;
+  const mobileNavLinkClasses = `${navLinkBaseClasses} text-center text-[40px] leading-[40px]`;
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
-  const menuItems: MenuItem[] = [
-    { href: "/about", label: "About Us" },
-    { href: "/menu", label: "Menu" },
-    { href: "/locations", label: "Locations" },
-    { href: "/festivals", label: "Festivals" },
-    { href: "/contact", label: "Contact Us" },
+  const leftItems: NavItem[] = [
+    { href: "#about-us", label: "About Us" },
+    { href: "#our-menu", label: "Our Menu" },
   ];
-  const socialMediaItems: MenuItem[] = [
-    { href: "https://www.instagram.com/3brosmunch/", label: "instagram" },
+
+  const rightItems: NavItem[] = [
+    { href: "#locations", label: "Locations" },
+    { href: "#festivals", label: "Festivals" },
   ];
+
+  const allItems: NavItem[] = [
+    ...leftItems,
+    ...rightItems,
+    { href: "#contact", label: "Contact" },
+  ];
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#12230D] border-0 shadow-none outline-none [border-bottom:0]">
-      <div className="max-w-7xl h-24 mx-auto px-4 py-4 flex items-center justify-between border-0">
-        <Link href="/">
+    <header className="sticky top-0 z-50 bg-forest border-0 shadow-none outline-none [border-bottom:0]">
+      <div className="max-w-7xl h-24 mx-auto px-4 py-4 flex items-center justify-between lg:justify-center border-0 relative">
+        <a
+          href="#top"
+          aria-label="Go to top"
+          className="inline-block lg:hidden"
+        >
           <Image
-            src="/images/3bros_logo.png"
+            src="/images/logo1.png"
             alt="3 Bros"
             width={200}
             height={200}
+            className="w-[100px] h-auto lg:w-[100px] xl:w-[100px]"
           />
-        </Link>
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-12 text-3xl font-la-petunia text-white">
-          {menuItems.map((item) => {
-            const isActive = router.pathname === item.href;
-            return (
-              <Link
+        </a>
+        <div className="hidden font-[48px] lg:grid grid-cols-[1fr_auto_1fr] items-center w-full">
+          <nav className="justify-self-start flex items-center gap-6 xl:gap-10 2xl:gap-12 text-white">
+            {leftItems.map((item) => (
+              <a
                 key={item.href}
                 href={item.href}
-                className={isActive ? "text-white" : "text-white hover:text-[#d8f3dc]"}
+                className={`${desktopNavLinkClasses} text-whey hover:text-white transition-colors`}
               >
                 {item.label}
-                {isActive && (
-                  <span className="absolute left-0 bottom-1 w-full h-0.25 bg-white translate-y-2"></span>
-                )}
-              </Link>
-            );
-          })}
-          {socialMediaItems.map((item) => {
-            return (
-              <Link
+              </a>
+            ))}
+          </nav>
+
+          <a
+            href="#top"
+            aria-label="Go to top"
+            className="inline-block justify-self-center"
+          >
+            <Image
+              src="/images/logo1.png"
+              alt="3 Bros"
+              width={200}
+              height={200}
+              className="w-[50px] h-auto lg:w-[100px] xl:w-[100px]"
+            />
+          </a>
+
+          <nav className="justify-self-end flex items-center gap-6 xl:gap-10 2xl:gap-12 text-white">
+            {rightItems.map((item) => (
+              <a
                 key={item.href}
                 href={item.href}
-                target="_blank"
-                aria-label="Instagram"
-                className="hover:opacity-70 transition-opacity flex items-center"
+                className={`${desktopNavLinkClasses} text-whey hover:text-white transition-colors`}
               >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="text-black"
-                >
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </Link>
-            );
-          })}
-        </nav>
-        {/* Mobile Hamburger Button */}
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
         <button
-          className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1"
-          onClick={toggleMenu}
+          type="button"
+          className="lg:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-1.5" : ""
-              }`}
-          ></span>
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? "rotate-45 translate-y-1.5" : ""
+            }`}
+          />
           <span
-            className={`block w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""
-              }`}
-          ></span>
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? "opacity-0" : ""
+            }`}
+          />
           <span
-            className={`block w-6 h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
-              }`}
-          ></span>
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
+            }`}
+          />
         </button>
       </div>
 
-      {/* Mobile Menu Full-Screen Modal */}
       <div
-        className={`md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center transition-all duration-300 ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
+        className={`lg:hidden fixed inset-0 z-50 flex flex-col transition-all duration-300 ${
+          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
       >
-        {/* Logo */}
-        <div
-          className={`absolute top-8 left-4 transition-all duration-500 delay-100 ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-        >
-          {/* <Image
-            src="/images/LOGO43.png"
-            alt="LDPG logo"
-            width={100} */}
-          <h1>3 Bros</h1>
+        {/* Top bar matching navbar */}
+        <div className="bg-forest h-24 px-4 flex items-center justify-between flex-shrink-0">
+          <a href="#top" onClick={closeMenu} aria-label="Go to top">
+            <Image
+              src="/images/logo1.png"
+              alt="3 Bros"
+              width={100}
+              height={100}
+              className="w-[50px] h-auto"
+            />
+          </a>
+          <button
+            type="button"
+            onClick={closeMenu}
+            aria-label="Close menu"
+            className="text-whey text-4xl font-podium leading-none"
+          >
+            ✕
+          </button>
         </div>
 
-        {/* Close Button */}
-        <button
-          className="absolute top-6 right-6 w-8 h-8 flex flex-col justify-center items-center"
-          onClick={closeMenu}
-          aria-label="Close menu"
-        >
-          <span className="block w-6 h-0.5 bg-black rotate-45 translate-y-0.5"></span>
-          <span className="block w-6 h-0.5 bg-black -rotate-45 -translate-y-0.5"></span>
-        </button>
-
-        <nav
-          className={`flex flex-col items-center space-y-8 transition-all duration-500 delay-100 ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-        >
-          {menuItems.map((item, index) => {
-            const isActive = router.pathname === item.href;
-            return (
-              <Link
+        <div className="bg-grass flex-1 flex flex-col justify-between overflow-y-auto">
+          <nav className="flex flex-col items-center gap-4 pt-12 px-4">
+            {allItems.map((item) => (
+              <a
                 key={item.href}
                 href={item.href}
-                className={`text-2xl font-medium hover:underline transition-all duration-300 ${isMenuOpen
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-                  } ${isActive ? "text-[#91AF80]" : ""}`}
-                style={{
-                  transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : "0ms",
-                }}
                 onClick={closeMenu}
+                className={`${mobileNavLinkClasses} text-whey`}
               >
                 {item.label}
-              </Link>
-            );
-          })}
-        </nav>
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex justify-center pb-4 pt-8">
+            <Image
+              src="/images/bull.png"
+              alt="3Bros bull"
+              width={288}
+              height={288}
+              className="w-72 h-auto"
+            />
+          </div>
+        </div>
       </div>
     </header>
   );

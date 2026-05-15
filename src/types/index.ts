@@ -1,14 +1,9 @@
-export interface MenuItem {
-  href: string;
-  label: string;
-}
-
 export interface MenuItemData {
   id: number;
   name: string;
-  description: string;
+  description?: string;
   price: number;
-  category: 'burger' | 'fries' | 'sides' | 'drinks';
+  category: "burger" | "fries/sides" | "sauces";
   availableAt: number[]; // Location IDs where this item is available
   image?: string;
 }
