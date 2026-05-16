@@ -8,7 +8,7 @@ interface ContactPayload {
   website?: string;
 }
 
-const EMAIL_RECIPIENT = "sean.myles.gray@gmail.com";
+const EMAIL_RECIPIENT = "3brosfood@gmail.com";
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 
 const trimField = (value: unknown) =>

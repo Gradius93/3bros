@@ -46,17 +46,17 @@ export default function AboutView() {
 
           <SectionImage
             src="/images/thebros.jpg"
-            alt="3Bros story section image"
+            alt="The three founders of 3Bros Burgers"
           />
         </div>
       </section>
       <section className="mb-6">
         <div className="grid lg:grid-cols-2 gap-6 items-start lg:items-stretch">
           <div className="flex flex-col gap-6">
-            <SectionImage src="/images/mooooooo.jpg" alt="Trenchmore Farm" />
+            <SectionImage src="/images/mooooooo.jpg" alt="Wagyu cattle grazing at Trenchmore Farm, Horsham" />
             <SectionImage
               src="/images/morecows.jpg"
-              alt="Trenchmore Farm Location"
+              alt="The Sussex Wagyu herd at Trenchmore Farm"
             />
           </div>
 
@@ -156,11 +156,11 @@ export default function AboutView() {
           <div className="flex flex-col gap-6">
             <SectionImage
               src="/images/pepperpatties.JPG"
-              alt="Trenchmore Farm"
+              alt="3Bros Sussex Wagyu smash burger patties seasoned with pepper"
             />
             <SectionImage
               src="/images/pattys.jpg"
-              alt="Trenchmore Farm Location"
+              alt="3Bros burger patties made from Trenchmore Farm Wagyu beef"
             />
           </div>
         </div>

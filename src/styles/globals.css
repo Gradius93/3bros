@@ -1,6 +1,9 @@
 @import "./fonts.css";
 @import "tailwindcss";
 
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 :root {
   --background: var(--color-whey);
   --foreground: #171717;
@@ -15,8 +18,6 @@
   --color-grass: #8faf80;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
   --font-overpass: "Overpass", sans-serif;
   --font-la-petunia: "La Petunia", sans-serif;
   --font-podium: "Podium Soft", "La Petunia", sans-serif;
@@ -56,6 +57,19 @@ body {
   text-shadow:
     0 6px 12px rgba(0, 0, 0, 0.8),
     0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fadeIn,
+  .animate-flipIn,
+  .animate-fadeOut,
+  .animate-flipOut {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Fade-in animation for portfolio items */

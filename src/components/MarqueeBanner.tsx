@@ -9,19 +9,18 @@ export default function MarqueeBanner({
 }: MarqueeBannerProps) {
   return (
     <section
-      aria-label="Scrolling text banner"
+      aria-label={text}
       className="bg-grass text-whey border-y border-whey/20"
     >
+      {/* Screen readers get the text once via aria-label on the section */}
       <div className="overflow-hidden py-5">
-        <div className="banner-track">
+        <div className="banner-track" aria-hidden="true">
           {Array.from({ length: BANNER_ITEMS * 2 }).map((_, index) => (
             <div key={index} className="flex items-center">
               <span className="inline-block px-6 text-2xl sm:text-3xl font-poppins whitespace-nowrap">
                 {text}
               </span>
-              <span aria-hidden="true" className="text-2xl sm:text-3xl font-poppins">
-                •
-              </span>
+              <span className="text-2xl sm:text-3xl font-poppins">•</span>
             </div>
           ))}
         </div>
@@ -40,6 +39,12 @@ export default function MarqueeBanner({
           }
           to {
             transform: translateX(-50%);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .banner-track {
+            animation: none;
           }
         }
       `}</style>

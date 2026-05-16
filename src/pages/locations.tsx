@@ -12,26 +12,37 @@ export default function Locations() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Restaurant",
-    name: "3Bros",
-    description: "Find 3Bros locations across South England",
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "GB",
-      addressRegion: "South England",
-    },
+    "@type": "ItemList",
+    name: "3Bros Burgers — All Locations",
+    description: "Find a 3Bros Burgers location near you across the South of England.",
+    itemListElement: locations.map((loc, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "FoodEstablishment",
+        name: `3Bros Burgers — ${loc.name}`,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: loc.address,
+          addressLocality: loc.city.split(",")[0].trim(),
+          postalCode: loc.city.split(",")[1]?.trim(),
+          addressCountry: "GB",
+        },
+        url: `https://3bros.co.uk/locations`,
+      },
+    })),
   };
 
   return (
     <>
       <SEOHead
-        title="Locations - 3Bros"
-        description="Find a 3Bros near you. Visit our locations in Horsham, Brighton, Chichester, and Winchester. Farm shop and food halls offering quality local produce."
+        title="3Bros Burgers Locations — Brighton, Chichester, Winchester & Horsham"
+        description="Find a 3Bros Burgers near you. Visit us at Shelter Hall Brighton, The Ghost at the Feast Chichester, Helch Winchester, or Trenchmore Farm Horsham."
         canonical="/locations"
-        keywords="3Bros locations, food halls, farm shop, Horsham, Brighton, Chichester, Winchester, local produce"
+        keywords="3Bros locations, Shelter Hall Brighton, Ghost at the Feast Chichester, Helch Winchester, Trenchmore Farm Horsham"
         structuredData={structuredData}
       />
-      <div className="min-h-screen bg-gray-50">
+      <main id="main-content" role="main" className="min-h-screen bg-gray-50">
         {/* Header */}
         <div className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-12">
@@ -42,7 +53,7 @@ export default function Locations() {
               Find a 3Bros near you across South England
             </p>
           </div>
-        </div>2
+        </div>
 
         {/* Instagram-style Grid */}
         <div className="max-w-7xl mx-auto px-4 py-8">
@@ -67,9 +78,9 @@ export default function Locations() {
 
                 {/* Title and Description */}
                 <div className="px-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">
+                  <h2 className="text-xl font-bold text-gray-900 mb-1">
                     {location.name}
-                  </h3>
+                  </h2>
                   <p className="text-sm text-gray-600">{location.description}</p>
                 </div>
               </div>
@@ -83,7 +94,7 @@ export default function Locations() {
             onClose={() => setSelectedLocation(null)}
           />
         )}
-      </div>
+      </main>
     </>
   );
 }
