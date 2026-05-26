@@ -1,22 +1,32 @@
+@import "./fonts.css";
 @import "tailwindcss";
 
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 :root {
-  --background: #ffffff;
+  --background: var(--color-whey);
   --foreground: #171717;
-  --color-sub-green: #1C4E30;
+  --color-sub-green: #1c4e30;
 }
 
 @theme inline {
+  --color-whey: #faf5dc;
+  --color-leaf: #18350e;
+  --color-forest: #12230d;
+  --color-akushi-gold: #be9151;
+  --color-grass: #8faf80;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
   --font-overpass: "Overpass", sans-serif;
+  --font-la-petunia: "La Petunia", sans-serif;
+  --font-podium: "Podium Soft", "La Petunia", sans-serif;
+  --font-poppins: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: var(--color-whey);
     --foreground: #ededed;
   }
 }
@@ -25,6 +35,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 /* Custom text shadow utilities for better readability */
@@ -37,11 +48,28 @@ body {
 }
 
 .text-shadow-lg {
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.7),
+    0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .text-shadow-xl {
-  text-shadow: 0 6px 12px rgba(0, 0, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.6);
+  text-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.8),
+    0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fadeIn,
+  .animate-flipIn,
+  .animate-fadeOut,
+  .animate-flipOut {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Fade-in animation for portfolio items */
@@ -58,4 +86,63 @@ body {
 
 .animate-fade-in {
   animation: fade-in 0.6s ease-out forwards;
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes flipOut {
+  from {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(90deg);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-flipIn {
+  animation: flipIn 0.5s ease-out;
+  transform-origin: center;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.3s ease-in;
+}
+
+.animate-flipOut {
+  animation: flipOut 0.4s ease-in;
+  transform-origin: center;
 }

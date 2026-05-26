@@ -16,7 +16,22 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying files in `src/pages/`. The page auto-updates as you edit.
+
+## Contact Form Email Setup
+
+The contact form posts to `src/pages/api/contact.ts` and sends email through Resend.
+
+Create a `.env.local` file with:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+CONTACT_FROM_EMAIL=3Bros Contact <noreply@your-verified-domain.com>
+```
+
+All contact form submissions are delivered to:
+
+`sean.myles.gray@gmail.com`
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
