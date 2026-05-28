@@ -39,6 +39,7 @@ export const menuItems: MenuItemData[] = [
     price: 12,
     category: "burger",
     availableAt: [1, 3],
+    image: "/images/menu_Mushroom_Halloumi.jpg",
   },
   {
     id: 5,
