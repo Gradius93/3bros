@@ -53,7 +53,10 @@ export default function AboutView() {
       <section className="mb-6">
         <div className="grid lg:grid-cols-2 gap-6 items-start lg:items-stretch">
           <div className="flex flex-col gap-6">
-            <SectionImage src="/images/mooooooo.jpg" alt="Wagyu cattle grazing at Trenchmore Farm, Horsham" />
+            <SectionImage
+              src="/images/mooooooo.jpg"
+              alt="Wagyu cattle grazing at Trenchmore Farm, Horsham"
+            />
             <SectionImage
               src="/images/morecows.jpg"
               alt="The Sussex Wagyu herd at Trenchmore Farm"
@@ -68,8 +71,8 @@ export default function AboutView() {
               Trenchmore Farm
             </h4>
             <p className="text-md mb-6 leading-[1.125]">
-              Trenchmore Farm is a one-of-a-kind farm, run by truly
-              one-of-a-kind people. The journey began over ten years ago, when
+              Trenchmore Farm (Cowfold, West Sussex) is a pioneer of British
+              regenerative farming. The journey began over ten years ago, when
               Japanese Wagyu embryos were brought over from Japan to establish
               what would become the Sussex Wagyu herd.
             </p>
@@ -78,7 +81,8 @@ export default function AboutView() {
               cattle to develop naturally, resulting in beautifully marbled,
               flavourful beef. By combining traditional British farming values
               with world-class Wagyu genetics, Trenchmore delivers a product
-              that&apos;s both luxurious and responsibly produced.
+              that&apos;s both consistently high-quality and responsibly
+              produced.
             </p>
             <p className="text-md leading-[1.125]">
               Our partnership with Trenchmore Farm ensures that every burger we
@@ -146,8 +150,11 @@ export default function AboutView() {
                   Slower, natural growth
                 </strong>
                 <p className="text-md  mt-1">
-                  Cattle are typically grown over a longer period, allowing
-                  flavour to develop.
+                  Trenchmore's cattle are typically grown over a longer period,
+                  allowing flavour to develop. They are a suckler herd, spending
+                  their first six to eight months with their mothers on a diet
+                  of milk then grass, hay, silage, local brewer’s grains and
+                  apple pomace from the Silly Moo Cider process.
                 </p>
               </li>
             </ul>
@@ -178,12 +185,7 @@ function SectionImage({
 }) {
   return (
     <div className="relative w-full min-h-[420px] aspect-[4/5] overflow-hidden rounded-xl border-3 border-leaf lg:min-h-0 lg:h-full lg:aspect-auto">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover"
-      />
+      <Image src={src} alt={alt} fill className="object-cover" />
     </div>
   );
 }
