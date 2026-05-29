@@ -162,7 +162,7 @@ export default function AboutView() {
 
           <div className="flex flex-col gap-6">
             <SectionImage
-              src="/images/pepperpatties.JPG"
+              src="/images/pepperpatties.jpg"
               alt="3Bros Sussex Wagyu smash burger patties seasoned with pepper"
             />
             <SectionImage
