@@ -1,47 +1,110 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+const vanImages = [
+  { src: "/images/3bros_van.jpeg", alt: "3Bros burger van at a festival" },
+  { src: "/images/3bros_van2.jpeg", alt: "3Bros burger van serving customers" },
+];
 
 const festivalsByMonth = [
   {
     month: "June",
     events: [
-      { dates: "June 12–14", datetime: "2026-06-12", name: "Brighton Summer Street Food Weekender" },
+      {
+        dates: "June 12–14",
+        datetime: "2026-06-12",
+        name: "Brighton Summer Street Food Weekender",
+      },
+      {
+        dates: "June 27",
+        datetime: "2026-06-27",
+        name: "Early Summer Market (Trenchmore Farm)",
+      },
     ],
   },
   {
     month: "July",
     events: [
-      { dates: "July 4–6", datetime: "2026-07-04", name: "Love Supreme" },
-      { dates: "July 24–25", datetime: "2026-07-24", name: "South Coast Sounds & Bites" },
+      {
+        dates: "Friday 3rd - Sunday 5th July",
+        datetime: "2026-07-03",
+        name: "Love Supreme (Glynde Place, E. Sussex)",
+      },
+      {
+        dates: "July 24–25",
+        datetime: "2026-07-24",
+        name: "South Coast Sounds & Bites",
+      },
+      {
+        dates: "Thursday 23rd - Sunday 26th July",
+        datetime: "2026-07-23",
+        name: "Latitude Festival (Henham Park, Suffolk)",
+      },
     ],
   },
   {
     month: "August",
     events: [
-      { dates: "Aug 8–10", datetime: "2026-08-08", name: "Trenchmore Farm's Late Summer Market" },
-      { dates: "Aug 22–24", datetime: "2026-08-22", name: "Leeds Festival" },
+      {
+        dates: "Aug 8–10",
+        datetime: "2026-08-08",
+        name: "Trenchmore Farm's Late Summer Market",
+      },
+      {
+        dates: "Aug 1st, 2nd, 8th, 9th, 15th, 16th",
+        datetime: "2026-08-15",
+        name: "Loxwood Joust (Horsham)",
+      },
+      {
+        dates: "Thursday 27th - Monday 31st August",
+        datetime: "2026-08-27",
+        name: "Leeds Festival (Bramham Park, W. Yorkshire)",
+      },
     ],
   },
   {
     month: "October",
     events: [
-      { dates: "Oct 11", datetime: "2026-10-11", name: "Trenchmore Farm's Autumn Market" },
+      {
+        dates: "Oct 11",
+        datetime: "2026-10-11",
+        name: "Trenchmore Farm's Autumn Market",
+      },
     ],
   },
 ];
 
 export default function FestivalsView() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % vanImages.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="bg-whey py-8" aria-label="Festival appearances">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          {/* Left: image */}
+          {/* Left: sliding image strip */}
           <div className="relative w-full aspect-square overflow-hidden rounded-sm">
-            <Image
-              src="/images/3Bros_gazebo-festival.jpg"
-              alt="3Bros gazebo set up at a festival"
-              fill
-              className="object-cover"
-            />
+            <div
+              className="flex h-full transition-transform duration-500 ease-in-out"
+              style={{
+                width: `${vanImages.length * 100}%`,
+                transform: `translateX(-${current * (100 / vanImages.length)}%)`,
+              }}
+            >
+              {vanImages.map((img) => (
+                <div key={img.src} className="relative h-full" style={{ width: `${100 / vanImages.length}%` }}>
+                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Right: title + festival list */}
@@ -59,11 +122,15 @@ export default function FestivalsView() {
                   <ul className="space-y-3 list-none">
                     {events.map((event) => (
                       <li key={event.name}>
-                        {/* text-leaf/70 ≈ 5:1 contrast on bg-whey, passing 4.5:1 AA */}
-                        <time dateTime={event.datetime} className="block text-leaf/70 text-sm">
+                        <time
+                          dateTime={event.datetime}
+                          className="block text-leaf/70 text-sm"
+                        >
                           {event.dates}
                         </time>
-                        <p className="text-leaf font-poppins text-base">{event.name}</p>
+                        <p className="text-leaf font-poppins text-base">
+                          {event.name}
+                        </p>
                       </li>
                     ))}
                   </ul>

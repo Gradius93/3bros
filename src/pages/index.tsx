@@ -165,7 +165,7 @@ export default function Home() {
           <AboutView />
         </section>
         <section id="our-menu" className="scroll-mt-24">
-          <MarqueeBanner text="Farmed For Flavour" />
+          <MarqueeBanner text="Sussex Wagyu burgers - farmed for flavour" />
           <MenuView />
         </section>
 
@@ -177,7 +177,7 @@ export default function Home() {
         <section id="festivals" className="scroll-mt-32">
           <FestivalsView />
         </section>
-            {/* to be fixed / review */}
+        {/* to be fixed / review */}
         {/* <section id="contact" className="scroll-mt-24 bg-whey">
           <ContactView />
         </section> */}

@@ -8,7 +8,10 @@ export default function LocationsView() {
   const activeLocation = locations.find((l) => l.id === openId) ?? locations[0];
 
   return (
-    <section className="bg-whey py-8 overflow-hidden" aria-label="Our locations">
+    <section
+      className="bg-whey py-8 overflow-hidden"
+      aria-label="Our locations"
+    >
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: title + subtitle + accordion */}
@@ -16,7 +19,9 @@ export default function LocationsView() {
             <h2 className="font-podium text-5xl sm:text-6xl md:text-7xl lg:text-9xl uppercase font-normal leading-none text-leaf mb-1 text-center">
               Locations
             </h2>
-            <p className="text-leaf text-base mb-10 text-center">Find a 3bros near you!</p>
+            <p className="text-leaf text-base mb-10 text-center">
+              Find a 3Bros near you!
+            </p>
 
             {/* Accordion — each button exposes its panel via aria-controls */}
             <div className="divide-y divide-leaf">
@@ -34,7 +39,9 @@ export default function LocationsView() {
                     >
                       <span
                         className={`font-poppins text-[28px] font-normal transition-colors ${
-                          isOpen ? "text-leaf" : "text-leaf/70 group-hover:text-leaf/90"
+                          isOpen
+                            ? "text-leaf"
+                            : "text-leaf/70 group-hover:text-leaf/90"
                         }`}
                       >
                         {location.name}

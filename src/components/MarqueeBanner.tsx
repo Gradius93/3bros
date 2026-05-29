@@ -30,7 +30,7 @@ export default function MarqueeBanner({
         .banner-track {
           display: flex;
           width: max-content;
-          animation: marquee-scroll 45s linear infinite;
+          animation: marquee-scroll 120s linear infinite;
         }
 
         @keyframes marquee-scroll {

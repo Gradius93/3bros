@@ -74,13 +74,25 @@ export default function MenuView() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="space-y-16">
           {burgers.length > 0 && (
-            <CarouselSection key={`burgers-${selectedLocation}`} title="Burgers" items={burgers} />
+            <CarouselSection
+              key={`burgers-${selectedLocation}`}
+              title="Burgers"
+              items={burgers}
+            />
           )}
           {friesSides.length > 0 && (
-            <CarouselSection key={`fries-${selectedLocation}`} title="Fries" items={friesSides} />
+            <CarouselSection
+              key={`fries-${selectedLocation}`}
+              title="Fries & Sides"
+              items={friesSides}
+            />
           )}
           {sauces.length > 0 && (
-            <CarouselSection key={`sauces-${selectedLocation}`} title="Sauces" items={sauces} />
+            <CarouselSection
+              key={`sauces-${selectedLocation}`}
+              title="Sauces"
+              items={sauces}
+            />
           )}
           {filteredItems.length === 0 && (
             <div className="text-center py-12" role="status" aria-live="polite">
@@ -126,32 +138,47 @@ function CarouselSection({
     if (!el) return;
     const isMobile = window.innerWidth < 768;
     if (isMobile) {
-      const cards = Array.from(el.firstElementChild?.children ?? []) as HTMLElement[];
+      const cards = Array.from(
+        el.firstElementChild?.children ?? []
+      ) as HTMLElement[];
       if (cards.length === 0) return;
       const cardWidth = cards[0].offsetWidth;
       const gap = 24; // gap-6
       const currentIndex = Math.round(el.scrollLeft / (cardWidth + gap));
-      const targetIndex = direction === "right"
-        ? Math.min(currentIndex + 1, cards.length - 1)
-        : Math.max(currentIndex - 1, 0);
-      el.scrollTo({ left: targetIndex * (cardWidth + gap), behavior: "smooth" });
+      const targetIndex =
+        direction === "right"
+          ? Math.min(currentIndex + 1, cards.length - 1)
+          : Math.max(currentIndex - 1, 0);
+      el.scrollTo({
+        left: targetIndex * (cardWidth + gap),
+        behavior: "smooth",
+      });
     } else {
       const offset = el.clientWidth - 48;
-      el.scrollBy({ left: direction === "right" ? offset : -offset, behavior: "smooth" });
+      el.scrollBy({
+        left: direction === "right" ? offset : -offset,
+        behavior: "smooth",
+      });
     }
   };
 
   // 44px min touch target; focus ring replaces bare focus:outline-none
   const btnBase =
     "inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-lg border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-1";
-  const btnEnabled = "bg-whey border-leaf text-leaf hover:bg-leaf hover:text-whey";
-  const btnDisabled = "bg-whey/40 border-leaf/30 text-leaf/30 cursor-not-allowed";
+  const btnEnabled =
+    "bg-whey border-leaf text-leaf hover:bg-leaf hover:text-whey";
+  const btnDisabled =
+    "bg-whey/40 border-leaf/30 text-leaf/30 cursor-not-allowed";
 
   return (
     <section aria-label={title}>
       <div className="flex items-center justify-between gap-4 m-4 border-t-2 border-leaf">
         <h3 className="text-3xl font-poppins py-4">{title}</h3>
-        <div className="flex gap-2" role="group" aria-label={`${title} carousel controls`}>
+        <div
+          className="flex gap-2"
+          role="group"
+          aria-label={`${title} carousel controls`}
+        >
           <button
             type="button"
             onClick={() => scroll("left")}
@@ -159,7 +186,20 @@ function CarouselSection({
             className={`${btnBase} ${canScrollLeft ? btnEnabled : btnDisabled}`}
             aria-label={`Scroll ${title} left`}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="11 6 5 12 11 18"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-6 h-6"
+              aria-hidden="true"
+            >
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="11 6 5 12 11 18" />
+            </svg>
           </button>
           <button
             type="button"
@@ -168,7 +208,20 @@ function CarouselSection({
             className={`${btnBase} ${canScrollRight ? btnEnabled : btnDisabled}`}
             aria-label={`Scroll ${title} right`}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-6 h-6"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
           </button>
         </div>
       </div>
