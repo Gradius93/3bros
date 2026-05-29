@@ -159,6 +159,7 @@ export const menuItems: MenuItemData[] = [
     price: 2,
     category: "sauces",
     availableAt: [2],
+    image: "/images/menu_Bros_Burger_Sauce.jpg",
   },
   {
     id: 18,
