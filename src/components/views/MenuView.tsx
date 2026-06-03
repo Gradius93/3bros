@@ -18,7 +18,7 @@ export default function MenuView() {
   const sauces = filteredItems.filter((item) => item.category === "sauces");
 
   return (
-    <div className="min-h-screen bg-whey">
+    <div className="min-h-screen bg-whey select-none">
       <div>
         <div className="max-w-7xl mx-auto px-4 pt-12 pb-2">
           <h2 className="text-4xl sm:text-6xl lg:text-8xl text-center text-leaf font-podium uppercase font-bold text-gray-900 mb-2">
@@ -43,7 +43,7 @@ export default function MenuView() {
                 type="button"
                 onClick={() => setSelectedLocation(null)}
                 aria-pressed={selectedLocation === null}
-                className={`px-4 py-2 min-h-[44px] rounded-lg transition-colors hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 ${
+                className={`px-4 py-2 min-h-[44px] rounded-lg uppercase transition-colors hover:cursor-pointer focus:outline-none ${
                   selectedLocation === null
                     ? "bg-grass text-whey"
                     : "bg-whey text-grass border-2 border-grass"
@@ -57,7 +57,7 @@ export default function MenuView() {
                   type="button"
                   onClick={() => setSelectedLocation(location.id)}
                   aria-pressed={selectedLocation === location.id}
-                  className={`px-4 py-2 min-h-[44px] rounded-lg transition-colors hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-2 ${
+                  className={`px-4 py-2 min-h-[44px] rounded-lg uppercase transition-colors hover:cursor-pointer focus:outline-none ${
                     selectedLocation === location.id
                       ? "bg-grass text-whey"
                       : "bg-whey text-grass border-2 border-grass"
@@ -164,11 +164,10 @@ function CarouselSection({
 
   // 44px min touch target; focus ring replaces bare focus:outline-none
   const btnBase =
-    "inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-lg border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-1";
+    "inline-flex items-center justify-center min-h-[44px] min-w-[44px] rounded-lg border-2 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-1";
   const btnEnabled =
     "bg-whey border-leaf text-leaf hover:bg-leaf hover:text-whey";
-  const btnDisabled =
-    "bg-whey/40 border-leaf/30 text-leaf/30 cursor-not-allowed";
+  const btnDisabled = "bg-whey border-grass text-grass cursor-not-allowed";
 
   return (
     <section aria-label={title}>

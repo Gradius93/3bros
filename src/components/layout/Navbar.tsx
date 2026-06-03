@@ -129,7 +129,7 @@ export default function Navbar() {
                 alt="3 Bros"
                 width={200}
                 height={200}
-                className="w-[50px] h-auto lg:w-[100px] xl:w-[100px]"
+                className="h-[60px] w-auto"
               />
             </a>
 
