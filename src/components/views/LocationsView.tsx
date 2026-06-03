@@ -76,7 +76,7 @@ export default function LocationsView() {
           </div>
 
           {/* Right: image, top-aligned with title */}
-          <div className="relative w-4/5 mx-auto aspect-square overflow-hidden rounded-sm border-2 border-leaf">
+          <div className="relative w-full aspect-square overflow-hidden rounded-sm border-2 border-leaf">
             <Image
               key={activeLocation.id}
               src={activeLocation.image}
