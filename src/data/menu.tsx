@@ -75,15 +75,6 @@ export const menuItems: MenuItemData[] = [
   // Fries & sides
   {
     id: 8,
-    name: "Truffle Parmesan & Fries",
-    description: "Grated parmesan & black truffle EV olive oil",
-    price: 6.5,
-    category: "fries/sides",
-    availableAt: [2],
-    image: "/images/menu_Truffle_Parmesan_Fries.jpg",
-  },
-  {
-    id: 9,
     name: "Fries",
     description: "Rosemary & oregano salt dusting",
     price: 4,
@@ -91,6 +82,16 @@ export const menuItems: MenuItemData[] = [
     availableAt: [1, 2, 3, 4, 5, 6],
     image: "/images/menu_Rosemary_Oregano_Fries.jpg",
   },
+  {
+    id: 9,
+    name: "Truffle Parmesan & Fries",
+    description: "Grated parmesan & black truffle EV olive oil",
+    price: 6.5,
+    category: "fries/sides",
+    availableAt: [2],
+    image: "/images/menu_Truffle_Parmesan_Fries.jpg",
+  },
+
   {
     id: 10,
     name: "Halloumi Fries",

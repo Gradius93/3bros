@@ -5,7 +5,7 @@ export default function AboutView() {
     <div className="max-w-7xl mx-auto px-4 py-8">
       <section className="mb-6">
         <div className="grid lg:grid-cols-2 gap-6 items-start lg:items-stretch">
-          <div className="prose prose-lg max-w-none bg-leaf border border-gray-300 rounded-xl p-6 sm:p-12 lg:p-20 text-whey">
+          <div className="prose prose-lg max-w-none bg-leaf border border-leaf rounded-xl p-6 sm:p-12 lg:p-20 text-whey">
             <div className="text-center">
               <h2 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
                 About Us
@@ -63,7 +63,7 @@ export default function AboutView() {
             />
           </div>
 
-          <div className="prose prose-lg max-w-none text-center bg-forest border border-gray-300 rounded-xl p-20 text-whey">
+          <div className="prose prose-lg max-w-none text-center bg-forest border border-forest rounded-xl p-20 text-whey">
             <h3 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
               The Farm
             </h3>
@@ -95,7 +95,7 @@ export default function AboutView() {
       </section>
       <section className="mb-6">
         <div className="grid lg:grid-cols-2 gap-6 items-start lg:items-stretch">
-          <div className="prose prose-lg max-w-none text-center bg-akushi-gold border border-gray-300 rounded-xl p-20 text-whey">
+          <div className="prose prose-lg max-w-none text-center bg-akushi-gold border border-akushi-gold rounded-xl p-20 text-whey">
             <h3 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
               Our Meat
             </h3>

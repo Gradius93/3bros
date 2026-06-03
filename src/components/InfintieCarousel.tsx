@@ -54,9 +54,8 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ images }) => {
         {duplicatedImages.map((src, index) => (
           <div
             key={index}
+            className="w-[400px] h-[400px] sm:w-[500px] sm:h-[500px]"
             style={{
-              width: "300px",
-              height: "300px",
               flexShrink: 0,
               position: "relative",
               border: "3px solid #18350E",

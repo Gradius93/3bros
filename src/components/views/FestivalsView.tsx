@@ -13,11 +13,6 @@ const festivalsByMonth = [
     month: "June",
     events: [
       {
-        dates: "June 12–14",
-        datetime: "2026-06-12",
-        name: "Brighton Summer Street Food Weekender",
-      },
-      {
         dates: "June 27",
         datetime: "2026-06-27",
         name: "Early Summer Market (Trenchmore Farm)",
@@ -31,11 +26,6 @@ const festivalsByMonth = [
         dates: "Friday 3rd - Sunday 5th July",
         datetime: "2026-07-03",
         name: "Love Supreme (Glynde Place, E. Sussex)",
-      },
-      {
-        dates: "July 24–25",
-        datetime: "2026-07-24",
-        name: "South Coast Sounds & Bites",
       },
       {
         dates: "Thursday 23rd - Sunday 26th July",
@@ -91,7 +81,7 @@ export default function FestivalsView() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: sliding image strip */}
-          <div className="relative w-full aspect-square overflow-hidden rounded-sm">
+          <div className="relative w-full aspect-square overflow-hidden rounded-sm border-2 border-leaf">
             <div
               className="flex h-full transition-transform duration-500 ease-in-out"
               style={{
@@ -100,8 +90,17 @@ export default function FestivalsView() {
               }}
             >
               {vanImages.map((img) => (
-                <div key={img.src} className="relative h-full" style={{ width: `${100 / vanImages.length}%` }}>
-                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                <div
+                  key={img.src}
+                  className="relative h-full"
+                  style={{ width: `${100 / vanImages.length}%` }}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               ))}
             </div>

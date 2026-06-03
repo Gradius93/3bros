@@ -19,12 +19,12 @@ export default function LocationsView() {
             <h2 className="font-podium text-5xl sm:text-6xl md:text-7xl lg:text-9xl uppercase font-normal leading-none text-leaf mb-1 text-center">
               Locations
             </h2>
-            <p className="text-leaf text-base mb-10 text-center">
+            <p className="text-leaf text-3xl mb-10 text-center">
               Find a 3Bros near you!
             </p>
 
             {/* Accordion — each button exposes its panel via aria-controls */}
-            <div className="divide-y divide-leaf">
+            <div className="divide-y-2 divide-leaf border-y-2 border-leaf">
               {locations.map((location) => {
                 const isOpen = location.id === openId;
                 const panelId = `location-panel-${location.id}`;
@@ -32,17 +32,13 @@ export default function LocationsView() {
                   <div key={location.id}>
                     <button
                       type="button"
-                      className="w-full flex items-center justify-between py-3 text-left group focus:outline-none focus:ring-2 focus:ring-leaf focus:rounded"
+                      className="w-full flex items-center justify-between py-3 text-left group outline-none border-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-leaf focus-visible:rounded"
                       onClick={() => setOpenId(location.id)}
                       aria-expanded={isOpen}
                       aria-controls={panelId}
                     >
                       <span
-                        className={`font-poppins text-[28px] font-normal transition-colors ${
-                          isOpen
-                            ? "text-leaf"
-                            : "text-leaf/70 group-hover:text-leaf/90"
-                        }`}
+                        className="font-poppins text-[28px] font-normal text-leaf"
                       >
                         {location.name}
                       </span>
@@ -80,7 +76,7 @@ export default function LocationsView() {
           </div>
 
           {/* Right: image, top-aligned with title */}
-          <div className="relative w-4/5 mx-auto aspect-square overflow-hidden rounded-sm">
+          <div className="relative w-4/5 mx-auto aspect-square overflow-hidden rounded-sm border-2 border-leaf">
             <Image
               key={activeLocation.id}
               src={activeLocation.image}
