@@ -81,7 +81,7 @@ export default function FestivalsView() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: sliding image strip */}
-          <div className="relative w-full aspect-square overflow-hidden rounded-sm border-2 border-leaf">
+          <div className="relative w-full aspect-square overflow-hidden rounded-sm border-2 border-leaf order-2 md:order-1">
             <div
               className="flex h-full transition-transform duration-500 ease-in-out"
               style={{
@@ -107,7 +107,7 @@ export default function FestivalsView() {
           </div>
 
           {/* Right: title + festival list */}
-          <div>
+          <div className="order-1 md:order-2">
             <h2 className="font-podium text-5xl sm:text-6xl md:text-7xl lg:text-9xl uppercase font-normal leading-none text-leaf mb-10 text-center md:text-left">
               Festivals
             </h2>
