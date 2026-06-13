@@ -3,7 +3,7 @@ import type { Location } from "../types";
 export const locations: Location[] = [
     {
         id: 1,
-        name: "Trenchmore Farm",
+        name: "Horsham",
         description:
             "Farm Shop serving fresh, locally-sourced produce. Menu expanding and opening four days a week this spring.",
         address: "Trenchmore Farm, Burnthouse Lane",
@@ -15,7 +15,7 @@ export const locations: Location[] = [
     },
     {
         id: 2,
-        name: "Shelter Hall",
+        name: "Brighton",
         description:
             "Food Hall in Brighton's iconic King's Road Arches, bringing quality dining to the seafront.",
         address: "King's Road Arches",
@@ -27,7 +27,7 @@ export const locations: Location[] = [
     },
     {
         id: 3,
-        name: "The Ghost at the Feast",
+        name: "Chichester",
         description:
             "Food Hall in the heart of historic Chichester, serving exceptional fare seven days a week.",
         address: "33–34 North Street",
@@ -39,7 +39,7 @@ export const locations: Location[] = [
     },
     {
         id: 4,
-        name: "Helch Winchester",
+        name: "Winchester",
         description:
             "Food Hall located in Winchester's Upper Brook Street, offering daily dining in the heart of the city.",
         address: "19 Upper Brook Street",
