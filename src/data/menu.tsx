@@ -32,16 +32,6 @@ export const menuItems: MenuItemData[] = [
     image: "/images/menu_Chilli_Blue.jpg",
   },
   {
-    id: 4,
-    name: "Mushroom & Halloumi",
-    description:
-      "Portobello mushroom, grilled halloumi, lettuce, bros burger sauce",
-    price: 12,
-    category: "burger",
-    availableAt: [1, 3],
-    image: "/images/menu_Mushroom_Halloumi.jpg",
-  },
-  {
     id: 5,
     name: "Bone marrow & truffle",
     description:
@@ -50,6 +40,16 @@ export const menuItems: MenuItemData[] = [
     category: "burger",
     availableAt: [2, 3, 4],
     image: "/images/menu_Bone_Marrow_Truffle.jpg",
+  },
+  {
+    id: 19,
+    name: "Wagyu Ragù",
+    description:
+      "Sussex Wagyu beef, rich spiced ragù, smoked cheddar, pickled jalapeño",
+    price: 15.5,
+    category: "burger",
+    availableAt: [2],
+    image: "/images/menu_Wagyu_Ragu.jpg",
   },
   {
     id: 6,
@@ -71,6 +71,16 @@ export const menuItems: MenuItemData[] = [
     availableAt: [2, 4],
     image: "/images/menu_Mushroom_Garlic_Truffle.jpg",
   },
+  {
+    id: 4,
+    name: "Mushroom & Halloumi",
+    description:
+      "Portobello mushroom, grilled halloumi, lettuce, bros burger sauce",
+    price: 12,
+    category: "burger",
+    availableAt: [1, 3],
+    image: "/images/menu_Mushroom_Halloumi.jpg",
+  },
 
   // Fries & sides
   {
@@ -91,7 +101,16 @@ export const menuItems: MenuItemData[] = [
     availableAt: [2],
     image: "/images/menu_Truffle_Parmesan_Fries.jpg",
   },
-
+  {
+    id: 12,
+    name: "Wragù Fries",
+    description:
+      "Rich spiced Sussex Wagyu ragù, smoked cheddar, pickled jalapeño loaded fries",
+    price: 9.5,
+    category: "fries/sides",
+    availableAt: [2],
+    image: "/images/menu_Wragu_Fries.jpg",
+  },
   {
     id: 10,
     name: "Halloumi Fries",
@@ -109,16 +128,6 @@ export const menuItems: MenuItemData[] = [
     category: "fries/sides",
     availableAt: [2, 3, 4],
     image: "/images/menu_Mac_Cheese_Bites.jpg",
-  },
-  {
-    id: 12,
-    name: "Wragù Fries",
-    description:
-      "Rich spiced Sussex Wagyu ragù, smoked cheddar, pickled jalapeño loaded fries",
-    price: 9.5,
-    category: "fries/sides",
-    availableAt: [2],
-    image: "/images/menu_Wragu_Fries.jpg",
   },
 
   // Sauces

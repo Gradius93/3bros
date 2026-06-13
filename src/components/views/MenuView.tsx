@@ -172,7 +172,7 @@ function CarouselSection({
   return (
     <section aria-label={title}>
       <div className="flex items-center justify-between gap-4 m-4 border-t-2 border-leaf">
-        <h3 className="text-3xl font-poppins py-4">{title}</h3>
+        <h3 className="text-3xl font-poppins py-4 text-leaf">{title}</h3>
         <div
           className="flex gap-2"
           role="group"
@@ -245,12 +245,14 @@ function CarouselSection({
 }
 
 function MenuItemCard({ item }: { readonly item: MenuItemData }) {
-  const availableAt =
-    item.availableAt.length >= locations.length
-      ? "All locations"
-      : item.availableAt
-          .map((locId) => locations.find((loc) => loc.id === locId)?.name ?? "")
-          .join(", ");
+  const availableAtText = (() => {
+    if (item.availableAt.length >= locations.length) return "Available at all locations";
+    const names = item.availableAt
+      .map((locId) => locations.find((loc) => loc.id === locId)?.name ?? "")
+      .filter(Boolean);
+    if (names.length === 1) return `Available in ${names[0]}`;
+    return `Available in ${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+  })();
 
   return (
     <article className="flex flex-col h-[600px] bg-whey border-2 border-leaf rounded-2xl overflow-hidden">
@@ -265,7 +267,7 @@ function MenuItemCard({ item }: { readonly item: MenuItemData }) {
 
       <div className="bg-forest flex-grow flex flex-col items-center justify-center px-6 py-5 text-center">
         <p className="text-grass text-xs uppercase tracking-widest mb-3">
-          Available at: {availableAt}
+          {availableAtText}
         </p>
         <h4 className="text-3xl uppercase font-podium font-bold text-whey leading-tight mb-3">
           {item.name}
