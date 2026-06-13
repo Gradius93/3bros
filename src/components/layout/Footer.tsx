@@ -62,7 +62,7 @@ export default function Footer() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
               </svg>
               <span>
-                Trenchmore Farm,<br />Brighton &amp; Hove RH13 8DG
+                Trenchmore Farm,<br />Cowfold, Horsham, RH13 8DG
               </span>
               <span className="sr-only">(opens in new tab)</span>
             </a>

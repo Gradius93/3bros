@@ -13,12 +13,12 @@ export default function AboutView() {
               <h3 className="text-3xl font-la-petunia mb-2">The Beginning</h3>
 
               <p className="text-md leading-[1.125] mb-10">
-                3Bros started in 2020 with three friends in their early
+                3Bros started in peak lockdown with three friends in their early
                 twenties, a shared obsession with great food, and a
                 not-so-humble mission: build the ultimate burger. The idea took
                 shape at Honeybee Café in Woodingdean, Brighton, where countless
-                experiments led to one simple rule - keep it simple and only use
-                the best ingredients.
+                experiments in a garage-converted prep kitchen led to one simple
+                rule — keep it simple and only use the best ingredients.
               </p>
             </div>
             <div className="text-center mb-12">
@@ -67,28 +67,43 @@ export default function AboutView() {
             <h3 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
               The Farm
             </h3>
-            <h4 className="text-3xl font-la-petunia mb-2 font-la-petunia">
-              Trenchmore Farm
+            <h4 className="text-3xl font-la-petunia mb-2">
+              Trenchmore &amp; Regenerative Agriculture
             </h4>
             <p className="text-md mb-6 leading-[1.125]">
-              Trenchmore Farm (Cowfold, West Sussex) is a pioneer of British
-              regenerative farming. The journey began over ten years ago, when
-              Japanese Wagyu embryos were brought over from Japan to establish
-              what would become the Sussex Wagyu herd.
+              Nestled in Cowfold, West Sussex, Trenchmore Farm is an
+              award-winning pioneer of British regenerative farming. Their
+              journey began over a decade ago when Red (Akaushi) Japanese Wagyu
+              embryos were brought over to establish what has become the
+              exceptional Sussex Wagyu herd.
             </p>
             <p className="text-md leading-[1.125] mb-6">
-              The farm focuses on slow-growth, pasture-based systems that allow
-              cattle to develop naturally, resulting in beautifully marbled,
-              flavourful beef. By combining traditional British farming values
-              with world-class Wagyu genetics, Trenchmore delivers a product
-              that&apos;s both consistently high-quality and responsibly
-              produced.
+              Trenchmore combines traditional British farming ethics with
+              world-class Wagyu genetics, crossing full-blood lines with native
+              breeds like Sussex and Angus to perfectly suit the local climate
+              and grazing lands.
+            </p>
+            <h4 className="text-3xl font-la-petunia mb-2">
+              World-Class Welfare
+            </h4>
+            <p className="text-md leading-[1.125] mb-6">
+              Cattle are raised under strict animal welfare standards, living
+              slow, natural lives. As a suckler herd, calves spend their first
+              six to eight months alongside their mothers.
+            </p>
+            <h4 className="text-3xl font-la-petunia mb-2">
+              Unique, Sustainable Diet
+            </h4>
+            <p className="text-md leading-[1.125] mb-6">
+              The herd enjoys a grass-led diet of pasture, hay, and silage,
+              supplemented with local brewer&apos;s grains and sweet apple
+              pomace left over from Trenchmore&apos;s own Silly Moo Cider
+              process.
             </p>
             <p className="text-md leading-[1.125]">
-              Our partnership with Trenchmore Farm ensures that every burger we
-              serve is made with the highest quality beef, raised with care and
-              respect for the land and the animal. It&apos;s this commitment to
-              excellence that makes the 3Bros burger truly exceptional.
+              Our partnership with Trenchmore Farm ensures that every 3Bros
+              burger is built on a foundation of respect for the animal,
+              restoration of the soil, and uncompromising quality.
             </p>
           </div>
         </div>
@@ -99,65 +114,38 @@ export default function AboutView() {
             <h3 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-10 font-podium uppercase tracking-[0.035em] text-center">
               Our Meat
             </h3>
-            <h4 className="text-4xl font-bold mb-6 font-la-petunia">
-              Sussex Wagyu Beef
+            <h4 className="text-3xl font-la-petunia mb-2">
+              The Sussex Wagyu Experience
             </h4>
-            <p className="text-md mb-8">
-              British Wagyu is Wagyu beef raised in the UK using Wagyu genetics,
-              but farmed to British standards and landscapes. It delivers the
-              signature marbling and richness Wagyu is known for, with a flavour
-              profile that&apos;s often cleaner, meatier and better balanced
-              than its Japanese counterpart.
+            <p className="text-md mb-6 leading-[1.125]">
+              This is Wagyu beef, reimagined. While traditional Japanese Wagyu
+              is famously rich, Trenchmore&apos;s grass-led grazing system
+              creates a flavour profile that is cleaner, meatier, and
+              beautifully balanced — delivering luxury without the overpowering
+              heaviness.
             </p>
-
-            <ul className="space-y-4">
-              <li>
-                <strong className="block font-semibold font-poppins">
-                  Wagyu genetics
-                </strong>
-                <p className="text-md mt-1">
-                  British Wagyu cattle are bred from full-blood or crossbred
-                  Wagyu lines, crossed with traditional British breeds like
-                  Sussex, Angus or Hereford to suit the UK climate and grazing
-                  systems.
-                </p>
-              </li>
-
-              <li>
-                <strong className="block font-semibold font-poppins">
-                  British farming standards
-                </strong>
-                <p className="text-md mt-1">
-                  The cattle are raised under some of the world&apos;s highest
-                  animal welfare regulations, often with slow-growing,
-                  pasture-based systems.
-                </p>
-              </li>
-
-              <li>
-                <strong className="block font-semibold font-poppins">
-                  Grass-led diets
-                </strong>
-                <p className="text-md  mt-1">
-                  Unlike Japanese Wagyu, which is usually grain-fed, British
-                  Wagyu is commonly grass-fed or grass-led, resulting in rich
-                  marbling without overpowering heaviness.
-                </p>
-              </li>
-
-              <li>
-                <strong className="block font-semibold">
-                  Slower, natural growth
-                </strong>
-                <p className="text-md  mt-1">
-                  Trenchmore's cattle are typically grown over a longer period,
-                  allowing flavour to develop. They are a suckler herd, spending
-                  their first six to eight months with their mothers on a diet
-                  of milk then grass, hay, silage, local brewer’s grains and
-                  apple pomace from the Silly Moo Cider process.
-                </p>
-              </li>
-            </ul>
+            <h4 className="text-3xl font-la-petunia mb-2">
+              Signature Marbling
+            </h4>
+            <p className="text-md mb-6 leading-[1.125]">
+              Intramuscular fat webs intricately throughout the meat. When it
+              hits the grill, this fat melts naturally, basting the burger from
+              the inside out for unmatched juiciness.
+            </p>
+            <h4 className="text-3xl font-la-petunia mb-2">The Texture</h4>
+            <p className="text-md mb-6 leading-[1.125]">
+              Because the cattle grow slowly and naturally, the beef develops an
+              incredibly tender, melt-in-your-mouth texture that holds its
+              structure perfectly.
+            </p>
+            <h4 className="text-3xl font-la-petunia mb-2">
+              Deep, Complex Flavour
+            </h4>
+            <p className="text-md leading-[1.125]">
+              The combination of heritage genetics and a unique cider-pomace
+              diet yields a deep, complex beefiness with subtle, sweet
+              undertones.
+            </p>
           </div>
 
           <div className="flex flex-col gap-6">
