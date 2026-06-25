@@ -13,6 +13,26 @@ const festivalsByMonth = [
     month: "June",
     events: [
       {
+        dates: "Saturday 13th",
+        datetime: "2026-06-13",
+        name: "Brighton Central Park @ Black Rock — Puzzle presents Sweely Burnski Julian Anthony Laidlaw Locklead Maxime dB RTK Tarantino",
+      },
+      {
+        dates: "Wednesday 17th",
+        datetime: "2026-06-17",
+        name: "Brighton Central Park @ Black Rock — England v Croatia",
+      },
+      {
+        dates: "Saturday 20th",
+        datetime: "2026-06-20",
+        name: "Brighton Central Park @ Black Rock — SHY FX",
+      },
+      {
+        dates: "Sunday 21st",
+        datetime: "2026-06-21",
+        name: "Brighton Central Park @ Black Rock — The Road to Nashville",
+      },
+      {
         dates: "June 27",
         datetime: "2026-06-27",
         name: "Early Summer Market (Trenchmore Farm)",
@@ -61,6 +81,16 @@ const festivalsByMonth = [
         dates: "Oct 11",
         datetime: "2026-10-11",
         name: "Trenchmore Farm's Autumn Market",
+      },
+    ],
+  },
+  {
+    month: "November - December",
+    events: [
+      {
+        dates: "Nov – Dec",
+        datetime: "2026-11-01",
+        name: "Hyde Park's Winter Wonderland",
       },
     ],
   },
