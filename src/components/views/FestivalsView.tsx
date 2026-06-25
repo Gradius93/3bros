@@ -57,12 +57,7 @@ const festivalsByMonth = [
   {
     month: "August",
     events: [
-      {
-        dates: "Aug 8–10",
-        datetime: "2026-08-08",
-        name: "Trenchmore Farm's Late Summer Market",
-      },
-      {
+{
         dates: "Aug 1st, 2nd, 8th, 9th, 15th, 16th",
         datetime: "2026-08-15",
         name: "Loxwood Joust (Horsham)",
@@ -71,6 +66,16 @@ const festivalsByMonth = [
         dates: "Thursday 27th - Monday 31st August",
         datetime: "2026-08-27",
         name: "Leeds Festival (Bramham Park, W. Yorkshire)",
+      },
+    ],
+  },
+  {
+    month: "September",
+    events: [
+      {
+        dates: "Thursday 10th - Saturday 12th",
+        datetime: "2026-09-10",
+        name: "Mucky Weekender (Winchester)",
       },
     ],
   },
