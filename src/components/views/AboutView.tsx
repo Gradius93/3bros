@@ -26,16 +26,17 @@ export default function AboutView() {
 
               <p className="text-md leading-[1.125] mb-10">
                 In 2022, things levelled up with a partnership with Trenchmore
-                Farm, one of the UK&apos;s top Wagyu beef producers. This took
-                our burgers to another level. Rich, juicy & seriously marbled.
-                The beef speaks for itself and keeps you coming back for more.
+                Farm, one of the UK&apos;s top Wagyu beef producers that use
+                regenerative and sustainable farming practices. This took our
+                burgers to another level. Rich, juicy &amp; seriously marbled.
+                The perfect cross-breed of Sussex Wagyu beef.
               </p>
             </div>
             <div className="text-center">
               <h3 className="text-3xl font-la-petunia mb-2">The Future</h3>
               <p className="text-md leading-[1.125] mb-10">
                 We now operate 4 permanent locations, with a brand new unit at
-                Winchester&apos;s Helch due to open in May 2026. 3Bros is
+                Winchester&apos;s Helch open as of May 2026. 3Bros is
                 always looking for new ventures and we plan to expand
                 nationwide. The goal hasn&apos;t changed: make the best burger
                 the UK&apos;s ever seen, back brilliant farmers and suppliers,

@@ -138,7 +138,7 @@ export default function Home() {
       {showLoader && <LoadingScreen isLoaded={isLoaded} />}
       <SEOHead
         title="3Bros Burgers — Sussex Wagyu Smash Burgers | South of England"
-        description="3Bros serve premium Sussex Wagyu smash burgers made with Trenchmore Farm beef. Find us at Shelter Hall Brighton, Chichester, Winchester, and Trenchmore Farm."
+        description="3Bros serve premium Sussex Wagyu burgers made with Trenchmore Farm beef. Find us at Shelter Hall Brighton, Chichester, Winchester, and Trenchmore Farm."
         canonical="/"
         ogImage="/images/3bros_desktop_safe_1920x1080.png"
         keywords="3Bros burgers, Sussex Wagyu beef, smash burger, Shelter Hall Brighton, Trenchmore Farm, Chichester, Winchester"
