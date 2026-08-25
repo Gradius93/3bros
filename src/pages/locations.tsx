@@ -36,10 +36,10 @@ export default function Locations() {
   return (
     <>
       <SEOHead
-        title="3Bros Burgers Locations — Brighton, Chichester, Winchester & Horsham"
-        description="Find a 3Bros Burgers near you. Visit us at Shelter Hall Brighton, The Ghost at the Feast Chichester, Helch Winchester, or Trenchmore Farm Horsham."
+        title="3Bros Burgers Locations — Brighton, Winchester & Horsham"
+        description="Find a 3Bros Burgers near you. Visit us at Shelter Hall Brighton, Helch Winchester, or Trenchmore Farm Horsham."
         canonical="/locations"
-        keywords="3Bros locations, Shelter Hall Brighton, Ghost at the Feast Chichester, Helch Winchester, Trenchmore Farm Horsham"
+        keywords="3Bros locations, Shelter Hall Brighton, Helch Winchester, Trenchmore Farm Horsham"
         structuredData={structuredData}
       />
       <main id="main-content" role="main" className="min-h-screen bg-gray-50">

@@ -11,15 +11,12 @@ test.describe("Locations page", () => {
     ).toBeVisible();
   });
 
-  test("displays all four location cards", async ({ page }) => {
+  test("displays all three location cards", async ({ page }) => {
     await expect(
       page.getByRole("heading", { name: "Horsham" })
     ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Brighton" })
-    ).toBeVisible();
-    await expect(
-      page.getByRole("heading", { name: "Chichester" })
     ).toBeVisible();
     await expect(
       page.getByRole("heading", { name: "Winchester" })
