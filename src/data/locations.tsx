@@ -26,18 +26,6 @@ export const locations: Location[] = [
             "https://www.google.com/maps/search/?api=1&query=King's+Road+Arches+Brighton+BN1+1NB",
     },
     {
-        id: 3,
-        name: "Chichester",
-        description:
-            "Food Hall in the heart of historic Chichester, serving exceptional fare seven days a week.",
-        address: "33–34 North Street",
-        city: "Chichester, PO19 1LX",
-        hours: "Mon-Sun: 12pm – close",
-        image: "/images/3bros_ghost-location.jpeg",
-        mapsUrl:
-            "https://www.google.com/maps/search/?api=1&query=33-34+North+Street+Chichester+PO19+1LX",
-    },
-    {
         id: 4,
         name: "Winchester",
         description:

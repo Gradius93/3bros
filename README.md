@@ -1,6 +1,6 @@
 # 3Bros Burgers
 
-The official website for **3Bros Burgers** — Sussex Wagyu smash burger specialists with locations across the South of England.
+The official website for **3Bros Burgers** — Sussex Wagyu burger specialists with locations across the South of England.
 
 Built with Next.js (Pages Router), Tailwind CSS v4, and deployed on Vercel.
 
@@ -46,7 +46,7 @@ src/
     MarqueeBanner.tsx
     SEOHead.tsx
   data/
-    locations.tsx     # Store locations (Horsham, Brighton, Chichester, Winchester)
+    locations.tsx     # Store locations (Horsham, Brighton, Winchester)
     menu.tsx          # Menu items with per-location availability
   pages/
     index.tsx         # Homepage (single-page with anchor sections)

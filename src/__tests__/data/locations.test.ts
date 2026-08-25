@@ -27,7 +27,7 @@ describe("locations data", () => {
     const names = locations.map((l) => l.name);
     expect(names).toContain("Brighton");
     expect(names).toContain("Horsham");
-    expect(names).toContain("Chichester");
     expect(names).toContain("Winchester");
+    expect(names).not.toContain("Chichester");
   });
 });
