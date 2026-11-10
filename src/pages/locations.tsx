@@ -71,6 +71,7 @@ export default function Locations() {
                       src={location.image}
                       alt={location.name}
                       fill
+                      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>

@@ -26,6 +26,16 @@ export const locations: Location[] = [
             "https://www.google.com/maps/search/?api=1&query=King's+Road+Arches+Brighton+BN1+1NB",
     },
     {
+        id: 5,
+        name: "Kemptown",
+        description: "Sidewinder, 65 St James's St, Brighton, BN2 1PJ",
+        address: "Sidewinder, 65 St James's St",
+        city: "Brighton, BN2 1PJ",
+        image: "/images/3bros_shelter-hall2-location.jpg",
+        mapsUrl:
+            "https://www.google.com/maps/search/?api=1&query=Sidewinder+65+St+James's+St+Brighton+BN2+1PJ",
+    },
+    {
         id: 4,
         name: "Winchester",
         description:

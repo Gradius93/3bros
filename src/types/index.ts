@@ -15,7 +15,7 @@ export interface Location {
   address: string;
   city: string;
   phone?: string;
-  hours: string;
+  hours?: string;
   image: string;
   mapsUrl: string;
 }

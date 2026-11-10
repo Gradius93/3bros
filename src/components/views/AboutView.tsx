@@ -174,7 +174,13 @@ function SectionImage({
 }) {
   return (
     <div className="relative w-full min-h-[420px] aspect-[4/5] overflow-hidden rounded-xl border-3 border-leaf lg:min-h-0 lg:h-full lg:aspect-auto">
-      <Image src={src} alt={alt} fill className="object-cover" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 1023px) 100vw, 610px"
+        className="object-cover"
+      />
     </div>
   );
 }

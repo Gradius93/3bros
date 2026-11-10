@@ -12,7 +12,6 @@ describe("locations data", () => {
       expect(loc.name).toBeTruthy();
       expect(loc.address).toBeTruthy();
       expect(loc.city).toBeTruthy();
-      expect(loc.hours).toBeTruthy();
       expect(loc.image).toBeTruthy();
       expect(loc.mapsUrl).toContain("google.com/maps");
     }
@@ -28,6 +27,7 @@ describe("locations data", () => {
     expect(names).toContain("Brighton");
     expect(names).toContain("Horsham");
     expect(names).toContain("Winchester");
+    expect(names).toContain("Kemptown");
     expect(names).not.toContain("Chichester");
   });
 });
