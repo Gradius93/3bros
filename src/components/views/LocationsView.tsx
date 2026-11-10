@@ -82,6 +82,7 @@ export default function LocationsView() {
               src={activeLocation.image}
               alt={`3Bros at ${activeLocation.name}`}
               fill
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 610px"
               className="object-cover transition-opacity duration-300"
             />
           </div>

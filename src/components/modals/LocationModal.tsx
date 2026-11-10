@@ -101,6 +101,7 @@ export function LocationModal({ location, onClose }: LocationModalProps) {
             src={location.image}
             alt={`3Bros at ${location.name}`}
             fill
+            sizes="(max-width: 671px) 100vw, 672px"
             className="object-cover"
           />
         </div>
@@ -137,12 +138,14 @@ export function LocationModal({ location, onClose }: LocationModalProps) {
               </div>
             )}
 
-            <div>
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
-                Hours
-              </h3>
-              <p className="text-lg text-gray-900">{location.hours}</p>
-            </div>
+            {location.hours && (
+              <div>
+                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                  Hours
+                </h3>
+                <p className="text-lg text-gray-900">{location.hours}</p>
+              </div>
+            )}
           </div>
 
           {/* Buttons */}
