@@ -67,6 +67,7 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ images }) => {
               src={src}
               alt=""
               fill
+              sizes="(max-width: 639px) 400px, 500px"
               style={{ objectFit: "cover" }}
               loading="lazy"
             />

@@ -261,6 +261,7 @@ function MenuItemCard({ item }: { readonly item: MenuItemData }) {
           src={item.image ?? "/images/pattys.jpg"}
           alt={`3Bros ${item.name}`}
           fill
+          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 45vw, 24vw"
           className="object-cover"
         />
       </div>

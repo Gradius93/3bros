@@ -83,19 +83,24 @@ const festivalsByMonth = [
     month: "October",
     events: [
       {
-        dates: "Oct 11",
-        datetime: "2026-10-11",
+        dates: "Oct 17",
+        datetime: "2026-10-17",
         name: "Trenchmore Farm's Autumn Market",
       },
     ],
   },
   {
-    month: "November - December",
+    month: "November - January",
     events: [
       {
-        dates: "Nov – Dec",
+        dates: "Nov – Jan 2027",
         datetime: "2026-11-01",
         name: "Hyde Park's Winter Wonderland",
+      },
+      {
+        dates: "Nov – Jan 2027",
+        datetime: "2026-11-01",
+        name: "Glow Wild Wakehurst",
       },
     ],
   },
@@ -134,6 +139,7 @@ export default function FestivalsView() {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 610px"
                     className="object-cover"
                   />
                 </div>
